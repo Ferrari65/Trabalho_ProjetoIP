@@ -1,0 +1,9 @@
+LINK Banco de dados MER e DER
+
+BR Modelo
+
+https://app.brmodeloweb.com/#!/publicview/671fcdb37a5fdbcc22f94a5a
+
+LUCID
+
+https://lucid.app/lucidchart/1445ffa0-a658-43ee-9f08-16e1f5fa3632/edit?viewport_loc=-1720%2C-1404%2C2592%2C1101%2C0_0&invitationId=inv_86d4f1e7-40af-426f-aa1d-a731a1d684b8
