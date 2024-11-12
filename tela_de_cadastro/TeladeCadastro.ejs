@@ -35,41 +35,43 @@
           </div>
         </div>
       </div>
-      <div class="columncadastrar">
-        <div class="columnmatricula">
-          <h2 class="ui heading size-headingxs">Matrícula</h2>
-          <label class="edittext_one">
-            <input name="matricula" type="text" />
-          </label>
+      <form action="/cadastro/addClient" method="POST">
+        <div class="columncadastrar">
+          <div class="columnmatricula">
+            <h2 class="ui heading size-headingxs">Matrícula</h2>
+            <label class="edittext_one">
+              <input name="matricula" type="text" required/>
+            </label>
+          </div>
+          <div class="columnnomecompl">
+            <h2 class="ui heading size-headingxs">Nome Completo</h2>
+            <label class="edittext-1">
+              <input name="nome" type="text" required/>
+            </label>
+          </div>
+          <div class="columnemail">
+            <h2 class="email ui heading size-headingxs">E-mail</h2>
+            <label class="edittext-1">
+              <input name="email" type="text" required/>
+            </label>
+          </div>
+          <div class="columnsenha">
+            <h2 class="email ui heading size-headingxs">Senha</h2>
+            <label class="edittext-1">
+              <input name="senha" type="password" required/>
+          </div>
+          <div class="columnconfirmao">
+            <h2 class="ui heading size-headingxs">Confirmação de senha</h2>
+            <label class="edittext_one">
+              <input name="confirmacao" type="text" required/>
+            </label>
+          </div>
+          <button id="cadastrar-se" class="flex-row-center-center cadastrarse" type="submit">
+            <span>Cadastrar-se</span>
+            <img src="/images/Cadastro/img_rocket.png" alt="Rocket" class="rocket" />
+          </button>
         </div>
-        <div class="columnnomecompl">
-          <h2 class="ui heading size-headingxs">Nome Completo</h2>
-          <label class="edittext-1">
-            <input name="edittext" type="text" />
-          </label>
-        </div>
-        <div class="columnemail">
-          <h2 class="email ui heading size-headingxs">E-mail</h2>
-          <label class="edittext-1">
-            <input name="email" type="text" />
-          </label>
-        </div>
-        <div class="columnsenha">
-          <h2 class="email ui heading size-headingxs">Senha</h2>
-          <label class="edittext-1">
-            <input name="senha" type="password" />
-        </div>
-        <div class="columnconfirmao">
-          <h2 class="ui heading size-headingxs">Confirmação de senha</h2>
-          <label class="edittext_one">
-            <input name="confirmacao" type="text" />
-          </label>
-        </div>
-        <button id="cadastrar-se" class="flex-row-center-center cadastrarse" onclick="window.location.href='/sucesso'">
-          <span>Cadastrar-se</span>
-          <img src="/images/Cadastro/img_rocket.png" alt="Rocket" class="rocket" />
-        </button>
-      </div>
+      </form>
     </div>
   </body>
 </html>
