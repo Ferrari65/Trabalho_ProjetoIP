@@ -18,11 +18,6 @@ app.set('views', [
 
 app.set('view engine', 'ejs');
 
-// Configuração do pool de conexão com o SupaBaseSQL
-const pool = new Pool({
-  database: process.env.DATABASE_URL
-});
-
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static('public'));
 
