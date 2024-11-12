@@ -119,6 +119,7 @@
 
 .cliqueaqui {
   color: var(--black_900) !important;
+  text-decoration: none;
 }
 
 .rightarrow_one {

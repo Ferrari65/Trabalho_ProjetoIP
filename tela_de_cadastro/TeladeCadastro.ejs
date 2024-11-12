@@ -38,7 +38,7 @@
       <form action="/cadastro/addClient" method="POST">
         <div class="columncadastrar">
           <div class="columnmatricula">
-            <h2 class="ui heading size-headingxs">Matrícula</h2>
+            <h2 class="ui heading size-headingxs">Matrícula (5 Digitos)</h2>
             <label class="edittext_one">
               <input name="matricula" type="text" required/>
             </label>
@@ -52,7 +52,7 @@
           <div class="columnemail">
             <h2 class="email ui heading size-headingxs">E-mail</h2>
             <label class="edittext-1">
-              <input name="email" type="text" required/>
+              <input name="email" type="email" required/>
             </label>
           </div>
           <div class="columnsenha">
@@ -63,7 +63,7 @@
           <div class="columnconfirmao">
             <h2 class="ui heading size-headingxs">Confirmação de senha</h2>
             <label class="edittext_one">
-              <input name="confirmacao" type="text" required/>
+              <input name="confirmacao" type="password" required/>
             </label>
           </div>
           <button id="cadastrar-se" class="flex-row-center-center cadastrarse" type="submit">
