@@ -1,0 +1,873 @@
+/*=========== TABLE OF CONTENTS ===========
+1. Common CSS
+2. Page CSS
+==========================================*/
+
+/*-------------------------------------
+  1. Common CSS
+--------------------------------------*/
+.cadastrese {
+  font-family: DM Serif Text !important;
+}
+
+.rowdescription {
+  margin-top: 4px;
+  width: 34%;
+  display: flex;
+  padding: 26px var(--space-md);
+  border-radius: var(--radius-sm);
+  border: 4px solid var(--gray_900_19);
+  @media only screen and (max-width: 1050px) {
+    width: 100%;
+    margin-top: 0px;
+  }
+
+  @media only screen and (max-width: 550px) {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+.columnheadingfo {
+  margin-bottom: 40px;
+  gap: var(--space-lg);
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.rowheadingfour {
+  gap: var(--space-sm);
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.image-1 {
+  height: 24px;
+  width: 24px;
+  object-fit: cover;
+}
+
+.headingfour {
+  text-align: center;
+  align-self: center;
+  flex: 1;
+  line-height: 25px;
+}
+
+.description-1 {
+  color: var(--black_900) !important;
+  margin-left: 20px;
+  letter-spacing: -0.17px;
+  text-align: justify;
+  width: 86%;
+  line-height: 25px;
+  @media only screen and (max-width: 1440px) {
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 1050px) {
+    width: 100%;
+    margin-left: 0px;
+  }
+}
+
+.seguranca {
+  flex: 1;
+  display: flex;
+}
+
+.columnseguranae-1 {
+  gap: var(--space-xs);
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.rowgraph_one {
+  gap: var(--space-md);
+  display: flex;
+}
+
+.graph_one {
+  height: 30px;
+  width: 30px;
+  object-fit: cover;
+}
+
+.seguranae {
+  color: var(--deep_purple_700) !important;
+}
+
+.description-5 {
+  text-align: justify;
+  line-height: 30px;
+}
+
+/*-------------------------------------
+  2. Page CSS
+--------------------------------------*/
+.tela-inicial {
+  gap: 144px;
+  background-color: var(--gray_900);
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  @media only screen and (max-width: 1440px) {
+    gap: 108px;
+  }
+
+  @media only screen and (max-width: 1050px) {
+    gap: 108px;
+  }
+
+  @media only screen and (max-width: 550px) {
+    gap: 72px;
+  }
+}
+
+.headernetslaugh {
+  margin-top: 18px;
+  margin-left: 30px;
+  margin-right: 92px;
+  display: flex;
+  background-color: var(--gray_900);
+  justify-content: space-between;
+  align-items: start;
+  gap: 20px;
+  @media only screen and (max-width: 1050px) {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  @media only screen and (max-width: 550px) {
+    flex-direction: column;
+  }
+}
+
+.rownetslaugh {
+  gap: var(--space-md);
+  align-self: center;
+  display: flex;
+  align-items: center;
+  @media only screen and (max-width: 550px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.imageforty_one {
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+}
+
+.netslaugh {
+  color: transparent !important;
+  background: linear-gradient(173deg, #d2b5f8, #905cd4, #5c3a88);
+  background-clip: text;
+  align-self: end;
+  @media only screen and (max-width: 1050px) {
+    font-size: 24px;
+  }
+
+  @media only screen and (max-width: 550px) {
+    font-size: 22px;
+  }
+}
+
+.rowcadastrese {
+  gap: 110px;
+  display: flex;
+  flex-wrap: wrap;
+  @media only screen and (max-width: 1440px) {
+    gap: 20px;
+  }
+
+  @media only screen and (max-width: 1050px) {
+    gap: 20px;
+  }
+
+  @media only screen and (max-width: 550px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.container {
+  height: 712px;
+  margin-bottom: 130px;
+  overflow-x: scroll;
+  position: relative;
+  align-content: center;
+  @media only screen and (max-width: 1440px) {
+    height: auto;
+  }
+
+  @media only screen and (max-width: 1050px) {
+    height: auto;
+  }
+}
+
+.rowdescription-3 {
+  width: 1728px;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  @media only screen and (max-width: 1050px) {
+    flex-direction: column;
+  }
+}
+
+.description {
+  color: var(--blue_gray_100) !important;
+  margin-bottom: 262px;
+  font-family: Montserrat !important;
+  z-index: 2;
+  align-self: end;
+  position: relative;
+  width: 38%;
+  line-height: 32px;
+  @media only screen and (max-width: 1440px) {
+    width: 38%;
+  }
+
+  @media only screen and (max-width: 1050px) {
+    align-self: auto;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.rowtaskmanageme {
+  margin-left: -30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  @media only screen and (max-width: 1050px) {
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 0px;
+  }
+}
+
+.taskmanagement {
+  height: 140px;
+  margin-bottom: 158px;
+  z-index: 1;
+  align-self: end;
+  width: 36%;
+  position: relative;
+  object-fit: contain;
+  @media only screen and (max-width: 1050px) {
+    align-self: auto;
+    width: 100%;
+  }
+}
+
+.iphoneimg_one {
+  height: 698px;
+  margin-left: -292px;
+  position: relative;
+  width: 62%;
+  object-fit: contain;
+  @media only screen and (max-width: 1050px) {
+    width: 100%;
+    margin-left: 0px;
+  }
+}
+
+.rowservices_one {
+  gap: var(--space-sm);
+  width: 950px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 13%;
+  right: 0px;
+  left: 0px;
+  margin: auto;
+  @media only screen and (max-width: 1050px) {
+    flex-direction: column;
+    position: relative;
+  }
+}
+
+.services_one {
+  height: 38px;
+  object-fit: cover;
+  @media only screen and (max-width: 1050px) {
+    width: 100%;
+  }
+}
+
+.heading4zero {
+  color: var(--white_a700) !important;
+  margin-bottom: 6px;
+  font-family: Montserrat !important;
+  align-self: end;
+  @media only screen and (max-width: 1050px) {
+    align-self: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 0px;
+  }
+}
+
+.columngerencies {
+  padding-left: 56px;
+  padding-right: 56px;
+  z-index: 3;
+  width: 1728px;
+  flex: 1;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  top: 0px;
+  height: max-content;
+  margin: auto;
+  @media only screen and (max-width: 1050px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @media only screen and (max-width: 550px) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.rowgerencieseus {
+  margin-top: -50px;
+  margin-left: 8px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  max-width: 1086px;
+  @media only screen and (max-width: 1050px) {
+    flex-direction: column;
+    margin-left: 0px;
+  }
+}
+
+.titulo {
+  margin-top: 12px;
+  flex: 1;
+  @media only screen and (max-width: 1050px) {
+    align-self: stretch;
+  }
+}
+
+.gerencieseus {
+  margin-top: 4px;
+  font-family: Michroma !important;
+  align-self: end;
+  line-height: 75px;
+  @media only screen and (max-width: 1050px) {
+    font-size: 32px;
+  }
+
+  @media only screen and (max-width: 550px) {
+    font-size: 30px;
+  }
+}
+
+.columnaumento {
+  margin-left: -38px;
+  gap: 158px;
+  align-self: center;
+  position: relative;
+  display: flex;
+  width: 34%;
+  flex-direction: column;
+  align-items: start;
+  @media only screen and (max-width: 1440px) {
+    gap: 118px;
+  }
+
+  @media only screen and (max-width: 1050px) {
+    width: 100%;
+    gap: 118px;
+    margin-left: 0px;
+  }
+
+  @media only screen and (max-width: 550px) {
+    gap: 79px;
+  }
+}
+
+.rowaumento {
+  margin-left: 20px;
+  background-color: var(--blue_gray_900_dd);
+  align-self: stretch;
+  display: flex;
+  padding: 12px 4px;
+  @media only screen and (max-width: 1050px) {
+    margin-left: 0px;
+  }
+}
+
+.aumento {
+  width: 96%;
+  line-height: 25px;
+}
+
+.container_one {
+  height: 182px;
+  background-color: var(--blue_gray_900_dd);
+  width: 76%;
+  visibility: hidden;
+}
+
+.botao {
+  margin-top: -48px;
+  gap: var(--space-lg);
+  position: relative;
+  display: flex;
+}
+
+.cadastrese-1 {
+  color: var(--gray_900);
+  padding-left: 28px;
+  padding-right: 34px;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 600;
+  gap: 2px;
+  background-color: #905cd4;
+  text-align: center;
+  height: 56px;
+  min-width: 212px;
+  border-radius: var(--radius-xs);
+  @media only screen and (max-width: 1440px) {
+    font-size: 13px;
+  }
+
+  @media only screen and (max-width: 550px) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.rocket {
+  height: 20px;
+  margin-top: 2px;
+  width: 40px;
+  object-fit: cover;
+}
+
+.saiba_mais {
+  color: var(--white_a700);
+  padding-left: 33px;
+  padding-right: 33px;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 600;
+  gap: 16px;
+  text-align: center;
+  height: 56px;
+  min-width: 210px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--white_a700);
+  @media only screen and (max-width: 1440px) {
+    font-size: 13px;
+  }
+
+  @media only screen and (max-width: 550px) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.left-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 22px;
+}
+
+.overflow_menu {
+  height: 22px;
+  width: 14px;
+}
+
+.telainfo {
+  margin-top: 90px;
+  gap: 44px;
+  background-color: var(--white_a700);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.listheadingfour {
+  margin-top: 74px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: var(--space-xl);
+  display: flex;
+  align-self: stretch;
+  max-width: 1296px;
+  width: 100%;
+  @media only screen and (max-width: 1440px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @media only screen and (max-width: 1050px) {
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.row_two {
+  height: 654px;
+  padding-top: 34px;
+  padding-bottom: 34px;
+  background-image: url(../public/images/img_group_215.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-self: stretch;
+  @media only screen and (max-width: 1440px) {
+    height: auto;
+  }
+
+  @media only screen and (max-width: 1050px) {
+    height: auto;
+  }
+
+  @media only screen and (max-width: 550px) {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+.row_one {
+  margin-top: 56px;
+}
+
+.columnview {
+  gap: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.image {
+  height: 34px;
+  margin-right: 114px;
+  width: 42%;
+  object-fit: contain;
+  @media only screen and (max-width: 1050px) {
+    margin-right: 0px;
+  }
+}
+
+.row {
+  margin-right: 50px;
+  align-self: stretch;
+  display: flex;
+  justify-content: flex-end;
+  align-items: start;
+  @media only screen and (max-width: 1050px) {
+    flex-direction: column;
+    margin-right: 0px;
+  }
+}
+
+.rowview {
+  height: 470px;
+  align-self: center;
+  background-image: url(../public/images/img_group_192.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 34px;
+  border-radius: var(--radius-xl);
+  @media only screen and (max-width: 1440px) {
+    height: auto;
+  }
+
+  @media only screen and (max-width: 1050px) {
+    align-self: stretch;
+    height: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @media only screen and (max-width: 550px) {
+    padding: 16px 20px;
+  }
+}
+
+.stackview {
+  height: 362px;
+  margin-bottom: 38px;
+  width: 76%;
+  position: relative;
+}
+
+.view {
+  height: 342px;
+  background-color: var(--deep_purple_50);
+  width: 78%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  margin: auto;
+  border-radius: var(--radius-lg);
+}
+
+.imagethirtynine {
+  height: 316px;
+  width: 78%;
+  object-fit: contain;
+  position: absolute;
+  left: 6%;
+  top: 0px;
+  margin: auto;
+  border-radius: var(--radius-md);
+}
+
+.description-4 {
+  color: var(--white_a700) !important;
+  margin-top: 56px;
+  margin-left: -170px;
+  text-align: justify;
+  font-weight: 400 !important;
+  z-index: 4;
+  position: relative;
+  width: 42%;
+  line-height: 45px;
+  @media only screen and (max-width: 1440px) {
+    width: 42%;
+  }
+
+  @media only screen and (max-width: 1050px) {
+    width: 100%;
+    font-size: 24px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 0px;
+  }
+
+  @media only screen and (max-width: 550px) {
+    font-size: 22px;
+  }
+}
+
+.ofertas {
+  height: 1116px;
+  background-color: var(--white_a700);
+  position: relative;
+  align-content: flex-end;
+  padding: 106px 90px;
+  @media only screen and (max-width: 1440px) {
+    height: auto;
+    padding: 32px;
+  }
+
+  @media only screen and (max-width: 1050px) {
+    height: auto;
+    padding: 20px;
+  }
+
+  @media only screen and (max-width: 550px) {
+    padding: 16px;
+  }
+}
+
+.purpleblur_one {
+  height: 456px;
+  margin-bottom: 184px;
+  margin-left: 132px;
+  width: 32%;
+  object-fit: contain;
+  @media only screen and (max-width: 1440px) {
+    margin-left: 0px;
+  }
+
+  @media only screen and (max-width: 1050px) {
+    margin-left: 0px;
+  }
+}
+
+.rowgrowingpurpl {
+  flex: 1;
+  display: flex;
+  align-items: start;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  top: 0px;
+  height: max-content;
+  max-width: 1548px;
+  width: 100%;
+  margin: auto;
+  @media only screen and (max-width: 1050px) {
+    flex-direction: column;
+    position: relative;
+  }
+}
+
+.column {
+  margin-bottom: 58px;
+  flex: 1;
+  @media only screen and (max-width: 1050px) {
+    align-self: stretch;
+  }
+}
+
+.columnoque {
+  gap: 276px;
+  display: flex;
+  flex-direction: column;
+  @media only screen and (max-width: 1440px) {
+    gap: 207px;
+  }
+
+  @media only screen and (max-width: 1050px) {
+    gap: 207px;
+  }
+
+  @media only screen and (max-width: 550px) {
+    gap: 138px;
+  }
+}
+
+.rowoque {
+  margin-left: 10px;
+  margin-right: 10px;
+  gap: 35px;
+  display: flex;
+  align-items: start;
+  flex-wrap: wrap;
+  @media only screen and (max-width: 1050px) {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+.oque {
+  color: transparent !important;
+  margin-top: 4px;
+  background: linear-gradient(149deg, #8b2cf5, #51198f);
+  background-clip: text;
+  @media only screen and (max-width: 1050px) {
+    font-size: 34px;
+  }
+
+  @media only screen and (max-width: 550px) {
+    font-size: 28px;
+  }
+}
+
+.class-_____ {
+  color: transparent !important;
+  background: linear-gradient(155deg, #820ad1, #f2e0ff);
+  background-clip: text;
+  align-self: center;
+  @media only screen and (max-width: 1050px) {
+    font-size: 40px;
+  }
+
+  @media only screen and (max-width: 550px) {
+    font-size: 34px;
+  }
+}
+
+.growingpurple {
+  height: 456px;
+  width: 86%;
+  object-fit: contain;
+}
+
+.column_one {
+  gap: 122px;
+  align-self: end;
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+  @media only screen and (max-width: 1440px) {
+    gap: 91px;
+  }
+
+  @media only screen and (max-width: 1050px) {
+    align-self: auto;
+    width: 100%;
+    gap: 91px;
+  }
+
+  @media only screen and (max-width: 550px) {
+    gap: 61px;
+  }
+}
+
+.escalabilidade {
+  margin-right: 12px;
+  @media only screen and (max-width: 1050px) {
+    margin-right: 0px;
+  }
+}
+
+.escalabilidade-1 {
+  color: var(--deep_purple_500) !important;
+}
+
+.columnseguranae {
+  margin-right: 6px;
+  @media only screen and (max-width: 1050px) {
+    margin-right: 0px;
+  }
+}
+
+.listseguranae {
+  gap: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+}
+
+.cadastrese-1:hover {
+  background-color: #601cdf;
+  transform: scale(1.05);
+}
+.saiba_mais {
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 5px;
+}
+
+.saiba_mais:hover {
+  background-color: #005f73;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cadastrese:hover {
+  color: #a300b9;
+
+}

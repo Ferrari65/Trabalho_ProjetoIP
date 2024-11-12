@@ -1,0 +1,37 @@
+/*=========== TABLE OF CONTENTS ===========
+1. Heading CSS
+==========================================*/
+
+/*-------------------------------------
+  1. Heading CSS
+--------------------------------------*/
+.ui.heading.size-headingxs {
+  font-size: 20px;
+  font-weight: 600;
+  font-style: bold;
+  @media only screen and (max-width: 1440px) {
+    font-size: 17px;
+  }
+}
+
+.ui.heading.size-headings {
+  font-size: 40px;
+  font-weight: 700;
+  font-style: bold;
+  @media only screen and (max-width: 1440px) {
+    font-size: 34px;
+  }
+
+  @media only screen and (max-width: 1050px) {
+    font-size: 38px;
+  }
+
+  @media only screen and (max-width: 550px) {
+    font-size: 36px;
+  }
+}
+
+.ui.heading {
+  color: var(--deep_purple_a400);
+  font-family: Poppins;
+}

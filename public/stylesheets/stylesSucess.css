@@ -1,0 +1,10 @@
+:root {
+  /*------Color variables------*/
+  --black_900: #000000;
+  --deep_purple_a200_6b: #8b2cf56b;
+  --deep_purple_a400: #6b26fe;
+  --white_a700: #ffffff;
+
+  /*------Border radius variables------*/
+  --radius-xs: 30px;
+}

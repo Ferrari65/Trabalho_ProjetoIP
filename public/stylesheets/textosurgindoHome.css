@@ -1,0 +1,61 @@
+.description {
+visibility: hidden;
+opacity: 0;
+transform: translateX(-100%);
+transition: opacity 1s ease 0.5s, visibility 0s linear 1s, transform 1s ease 0.5s;
+transition-timing-function: linear;
+}
+
+.rowservices_one{
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 1s ease 0.5s, visibility 0s linear 1s, transform 1s ease 0.5s;
+}
+
+.columngerencies{
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: opacity 1s ease 0.5s, visibility 0s linear 1s, transform 1s ease 0.5s;
+}
+.botao {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 1s ease 0.5s, visibility 0s linear 1s, transform 1s ease 0.5s;
+}
+
+
+
+.listheadingfour{
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: opacity 1s ease 0.5s, visibility 0s linear 1s, transform 1s ease 0.5s;
+    }
+
+.columnoque {
+    visibility: hidden;
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: opacity 1s ease 0.5s, visibility 0s linear 1s, transform 1s ease 0.5s;
+ }
+ 
+/* /Secao container de informacoes O Que oferececemos/ */
+
+ .escalabilidade {
+visibility: hidden;
+opacity: 0;
+transform: translateX(-100%);
+transition: opacity 1s ease 0.5s, visibility 0s linear 1s, transform 1s ease 0.5s;
+transition-timing-function: linear;
+ }
+
+ .columnseguranae{
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 1s ease 0.5s, visibility 0s linear 1s, transform 1s ease 0.5s;
+    transition-timing-function: linear;
+ }
