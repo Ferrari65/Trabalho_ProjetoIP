@@ -58,18 +58,34 @@
           <div class="columnsenha">
             <h2 class="email ui heading size-headingxs">Senha</h2>
             <label class="edittext-1">
-              <input name="senha" type="password" required/>
+              <input name="senha" id="senha" type="password" required />
+            </label>
           </div>
           <div class="columnconfirmao">
             <h2 class="ui heading size-headingxs">Confirmação de senha</h2>
             <label class="edittext_one">
-              <input name="confirmacao" type="password" required/>
+              <input name="confirmacao" id="confirmacao" type="password" required />
             </label>
           </div>
-          <button id="cadastrar-se" class="flex-row-center-center cadastrarse" type="submit">
+          <button id="cadastrar-se" class="flex-row-center-center cadastrarse" type="submit" onclick="verificarSenhas(event)">
             <span>Cadastrar-se</span>
             <img src="/images/Cadastro/img_rocket.png" alt="Rocket" class="rocket" />
           </button>
+          
+          <script>
+            function verificarSenhas(event) {
+              // Obter os valores dos campos de senha
+              const senha = document.getElementById('senha').value;
+              const confirmacao = document.getElementById('confirmacao').value;
+          
+              // Verificar se as senhas coincidem
+              if (senha !== confirmacao) {
+                event.preventDefault(); // Evitar o envio do formulário
+                alert('Confirme a senha corretamente');
+              }
+            }
+          </script>
+          
         </div>
       </form>
     </div>

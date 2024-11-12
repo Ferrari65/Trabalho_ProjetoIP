@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { Pool } = require('pg');
 const app = express();
 const path = require('path');
 
@@ -10,10 +9,10 @@ const cadastroRouter = require('./routes/cadastro');
 const sucessoRouter = require('./routes/sucesso');
 
 app.set('views', [
-  path.join(__dirname, 'tela_home'),
-  path.join(__dirname, 'login'),   // Diretório adicional onde está Login.ejs
-  path.join(__dirname, 'tela_de_cadastro'),
-  path.join(__dirname, 'sucesso_cadastro')
+  path.join(__dirname, 'tela_home'), // Diretório adicional onde está tela_home.ejs
+  path.join(__dirname, 'login'),   // Diretório adicional onde está login.ejs
+  path.join(__dirname, 'tela_de_cadastro'), // Diretório adicional onde está tela_de_cadastro.ejs
+  path.join(__dirname, 'sucesso_cadastro') // Diretório adicional onde está sucesso_cadastro.ejs
 ]);
 
 app.set('view engine', 'ejs');

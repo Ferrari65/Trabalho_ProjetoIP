@@ -33,21 +33,23 @@
           </div>
         </div>
       </div>
-      <div class="column_one">
-        <div class="columnemail">
-          <h2 class="ui heading size-headingxs">Email</h2>
-          <label class="edittext-1">
-            <input name="email" type="email" placeholder="Digite seu email" required />
-          </label>
+      <form action="/login/autentication" method="POST">
+        <div class="column_one">
+          <div class="columnemail">
+            <h2 class="ui heading size-headingxs">Email</h2>
+            <label class="edittext-1">
+              <input name="email" type="email" placeholder="Digite seu email" required />
+            </label>
+          </div>
+          <div class="columnsenha">
+            <h2 class="ui heading size-headingxs">Senha</h2>
+            <label class="edittext-1">
+              <input name="senha" type="password" placeholder="Digite sua senha" required />
+            </label>
+          </div>
+          <button id="login" class="flex-row-center-center login-1" type="submit">Login</button>
         </div>
-        <div class="columnsenha">
-          <h2 class="ui heading size-headingxs">Senha</h2>
-          <label class="edittext-1">
-            <input name="senha" type="password" placeholder="Digite sua senha" required />
-          </label>
-        </div>
-        <button id="login" class="flex-row-center-center login-1">Login</button>
-      </div>
+      </form>
     </div>
 
   </body>
