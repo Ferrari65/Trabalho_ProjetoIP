@@ -1,0 +1,88 @@
+
+.cabecalho{
+    padding: 2% 4% 0 3%;
+ }
+ .cabecalho_menu {
+    display: flex;
+    font-family: 'poppins' , 'sans-serif';
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  /* Logo */
+  .imagem_logo {
+    height: 60px;
+  }
+  
+  /* Navegação */
+  .nav_list {
+
+    list-style: none;
+    display: flex;
+    gap: 32px; 
+  }
+  
+  .cabecalho_menu_link {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    padding: 30px;
+    transition: color 0.3s ease;
+  }
+  
+
+  /*              ESTILIZACÕES LINKS DE NAVEGAÇÃO        */
+
+
+
+.cabecalho_menu_link {
+    font-size: 15px;
+    background: transparent;
+    border: none;
+    padding: 1em 1.5em;
+    color: #ffffff;
+    text-transform: uppercase;
+    position: relative;
+    transition: 0.5s ease;
+    cursor: pointer;
+  }
+  
+  .cabecalho_menu_link:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #ffc506;
+    transition: 0.5s ease;
+  }
+  
+  .cabecalho_menu_link:hover {
+    color: #1e1e2b;
+    transition-delay: 0.5s;
+  }
+  
+  .cabecalho_menu_link:hover::before {
+    width: 100%;
+  }
+  
+  .cabecalho_menu_link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    background-color: #ffc506;
+    transition: 0.4s ease;
+    z-index: -1;
+  }
+  
+  .cabecalho_menu_link:hover::after {
+    height: 100%;
+    transition-delay: 0.4s;
+    color: aliceblue;
+  }
+  

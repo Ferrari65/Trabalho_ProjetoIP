@@ -1,0 +1,36 @@
+
+section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+  }
+  .section_config{
+      display: flex;
+      scroll-snap-align: start; /* Alinha cada seção ao início */
+      scroll-snap-stop: always; /* Garante que pare na seção */
+      scroll-snap-type: y;
+      font-size: 4rem;
+      height: 90vh;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .teste-1 {
+      color: white;
+      background: rgb(238, 238, 238);
+  }
+  
+  .teste-2 {
+      color: black;
+      background: white;
+  }
+  
+  

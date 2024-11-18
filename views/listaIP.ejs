@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso - Tabela de Cadastro</title>
+    <link rel="stylesheet" href="/ListaIPcss/style.css"> <!-- Adicione o seu CSS se necessário -->
+    <link rel="stylesheet" href="/telainicialcss/header.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <nav class="cabecalho_menu">
+            <img class="imagem_logo" src="/img/nome_logo.png" alt="Logo da empresa">
+            <ul class="nav_list" id="section1">
+                <li><a class="cabecalho_menu_link" href="/listagem">Lista de IP</a></li>
+                <li><a class="cabecalho_menu_link" href="#">Cadastro de IP</a></li>
+                <a href="/home">
+                    <button class="logout-button">Sair</button> <!-- Botão de logout no header -->
+                </a>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Bem-vindo ao Acesso - Tabela de Cadastro</h1>
+
+    <!-- Barra de Pesquisa e Filtro -->
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar...">
+        <select id="filterSelect" class="filter-select">
+            <option value="">Filtrar por...</option>
+            <option value="nome">Nome</option>
+            <option value="matricula">Matrícula</option>
+            <option value="ip">Endereço de IP</option>
+            <option value="data">Data de Cadastro</option>
+        </select>
+    </div>
+
+    <!-- Tabela de informações -->
+    <table id="infoTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Matrícula</th>
+                <th>Endereço de IP</th>
+                <th>Data de Cadastro</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Dados da Tabela -->
+            <tr>
+                <td>João Silva</td>
+                <td>123456</td>
+                <td>192.168.1.1</td>
+                <td>01/10/2024</td>
+            </tr>
+            <tr>
+                <td>Maria Oliveira</td>
+                <td>654321</td>
+                <td>192.168.1.2</td>
+                <td>02/10/2024</td>
+            </tr>
+            <tr>
+                <td>Pedro Souza</td>
+                <td>112233</td>
+                <td>192.168.1.3</td>
+                <td>03/10/2024</td>
+            </tr>
+            <tr>
+                <td>Ana Costa</td>
+                <td>445566</td>
+                <td>192.168.1.4</td>
+                <td>04/10/2024</td>
+            </tr>
+            <tr>
+                <td>Lucas Pereira</td>
+                <td>778899</td>
+                <td>192.168.1.5</td>
+                <td>05/10/2024</td>
+            </tr>
+            <tr>
+                <td>Fernanda Lima</td>
+                <td>223344</td>
+                <td>192.168.1.6</td>
+                <td>06/10/2024</td>
+            </tr>
+            <tr>
+                <td>Carlos Mendes</td>
+                <td>998877</td>
+                <td>192.168.1.7</td>
+                <td>07/10/2024</td>
+            </tr>
+            <tr>
+                <td>Gustavo Martins</td>
+                <td>123789</td>
+                <td>192.168.1.8</td>
+                <td>08/10/2024</td>
+            </tr>
+            <tr>
+                <td>Patrícia Rocha</td>
+                <td>987654</td>
+                <td>192.168.1.9</td>
+                <td>09/10/2024</td>
+            </tr>
+            <tr>
+                <td>Roberto Alves</td>
+                <td>135792</td>
+                <td>192.168.1.10</td>
+                <td>10/10/2024</td>
+            </tr>
+            <tr>
+                <td>Juliana Lima</td>
+                <td>246810</td>
+                <td>192.168.1.11</td>
+                <td>11/10/2024</td>
+            </tr>
+            <tr>
+                <td>Marcos Silva</td>
+                <td>369258</td>
+                <td>192.168.1.12</td>
+                <td>12/10/2024</td>
+            </tr>
+            <tr>
+                <td>Rafaela Costa</td>
+                <td>456789</td>
+                <td>192.168.1.13</td>
+                <td>13/10/2024</td>
+            </tr>
+            <tr>
+                <td>Eduardo Lima</td>
+                <td>567890</td>
+                <td>192.168.1.14</td>
+                <td>14/10/2024</td>
+            </tr>
+            <tr>
+                <td>Julio Henrique</td>
+                <td>678901</td>
+                <td>192.168.1.15</td>
+                <td>15/10/2024</td>
+            </tr>
+            <tr>
+                <td>Beatriz Martins</td>
+                <td>789012</td>
+                <td>192.168.1.16</td>
+                <td>16/10/2024</td>
+            </tr>
+            <tr>
+                <td>Henrique Souza</td>
+                <td>890123</td>
+                <td>192.168.1.17</td>
+                <td>17/10/2024</td>
+            </tr>
+            <tr>
+                <td>Vitoria Pereira</td>
+                <td>901234</td>
+                <td>192.168.1.18</td>
+                <td>18/10/2024</td>
+            </tr>
+            <tr>
+                <td>Fabiana Oliveira</td>
+                <td>112233</td>
+                <td>192.168.1.19</td>
+                <td>19/10/2024</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // Função para filtrar dados da tabela com base na pesquisa e no filtro
+        document.getElementById('searchInput').addEventListener('input', filterTable);
+        document.getElementById('filterSelect').addEventListener('change', filterTable);
+
+        function filterTable() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const filter = document.getElementById('filterSelect').value;
+            const table = document.getElementById('infoTable');
+            const rows = table.getElementsByTagName('tr');
+            
+            for (let i = 1; i < rows.length; i++) { // Ignorar a linha de cabeçalho
+                const cells = rows[i].getElementsByTagName('td');
+                let match = false;
+                
+                // Dependendo do filtro selecionado, verifica a célula correspondente
+                switch (filter) {
+                    case 'nome':
+                        match = cells[0].textContent.toLowerCase().includes(searchTerm);
+                        break;
+                    case 'matricula':
+                        match = cells[1].textContent.toLowerCase().includes(searchTerm);
+                        break;
+                    case 'ip':
+                        match = cells[2].textContent.toLowerCase().includes(searchTerm);
+                        break;
+                    case 'data':
+                        match = cells[3].textContent.toLowerCase().includes(searchTerm);
+                        break;
+                    default:
+                        match = Array.from(cells).some(cell => cell.textContent.toLowerCase().includes(searchTerm));
+                }
+                rows[i].style.display = match ? '' : 'none';
+            }
+        }
+    </script>
+</body>
+</html>

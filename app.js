@@ -7,13 +7,7 @@ var homeRouter = require('./routes/home');
 var loginRouter = require('./routes/login');
 const cadastroRouter = require('./routes/cadastro');
 const sucessoRouter = require('./routes/sucesso');
-
-app.set('views', [
-  path.join(__dirname, 'tela_home'), // Diretório adicional onde está tela_home.ejs
-  path.join(__dirname, 'login'),   // Diretório adicional onde está login.ejs
-  path.join(__dirname, 'tela_de_cadastro'), // Diretório adicional onde está tela_de_cadastro.ejs
-  path.join(__dirname, 'sucesso_cadastro') // Diretório adicional onde está sucesso_cadastro.ejs
-]);
+const listaRouter = require('./routes/lista');
 
 app.set('view engine', 'ejs');
 
@@ -24,6 +18,7 @@ app.use('/home', homeRouter);
 app.use('/login', loginRouter);
 app.use('/cadastro', cadastroRouter)
 app.use('/sucesso', sucessoRouter)
+app.use('/listagem', listaRouter)
 
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000 !!!");

@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;    
+    font-family: Raleway, sans-serif; 
+}
+
+/* Estilos do Corpo */
+body {
+    background: linear-gradient(90deg, #2E2E5F, #19191B); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Cabeçalho fixo no topo */
+.cabecalho {
+    position: fixed;  
+    top: 0;          
+    left: 0; 
+    height: 100px;        
+    width: 100%;      
+    background-color: #0f0f33; 
+    z-index: 1000;   
+    padding: 60px 0;  
+    
+}
+
+.container {
+    margin-top: 60px; 
+}
+
+/* Estilizacao h2 login */
+h2 {
+    color: #554ab8;
+}
+
+/* Container Principal */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    flex-direction: row; 
+}
+
+/* Lado Esquerdo (Imagem e Texto) */
+.left-container {
+    width: 50%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+}
+
+/* Texto acima da imagem */
+.image-text {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 60px; 
+}
+
+strong {
+    color: #9f61e6;
+}
+
+/* Container da Imagem */
+.image-container {
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen__image {
+    max-width: 80%;
+    height: auto;
+}
+
+/* Container do Formulário (Lado Direito) */
+.screen {
+    width: 50%; 
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0px 0px 24px #554ab8; /* Sombra para dar profundidade */
+    height: 100%;
+    position: relative;
+    border-radius: 20px; /* Bordas arredondadas */
+}
+
+/* Estilos do Formulário de Login */
+.login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Campo de Entrada */
+.login__field {
+    padding: 15px 0px;    
+    position: relative;    
+    width: 100%;
+}
+
+/* Ícones dentro dos Campos de Entrada */
+.login__icon {
+    position: absolute;
+    top: 30px;
+    color: #7875B5;
+}
+
+/* Estilo dos Inputs */
+.login__input {
+    border: none;
+    border-bottom: 2px solid #D1D1D4;
+    background: none;
+    padding: 10px;
+    padding-left: 24px;
+    font-weight: 700;
+    width: 100%; 
+    transition: .2s; 
+}
+
+/* Estilos de Foco e Hover nos Inputs */
+.login__input:active,
+.login__input:focus,
+.login__input:hover {
+    outline: none;
+    border-bottom-color: #6A679E; /* Mudança na borda ao focar ou passar o mouse */
+}
+
+/* Botão de Submissão */
+.login__submit {
+    background: #554ab8;
+    font-size: 14px;
+    margin-top: 20px;
+    padding: 16px 20px;
+    border-radius: 26px;
+    border: 0px solid #000000;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: #ffffff;
+    box-shadow: 0px 2px 2px #5C5696;
+    cursor: pointer;
+    transition: .2s; 
+}
+
+/* Estilos de Foco e Hover no Botão de Submissão */
+.login__submit:active,
+.login__submit:focus,
+.login__submit:hover {
+    border-color: #6A679E;
+    outline: none;
+}
+
+/* Hover nos Campos de Entrada */
+.login__input:hover {
+    border-bottom-color: #403ab6; 
+}
+
+/* Hover no Botão de Envio */
+.login__submit:hover {
+    background-color: #2f2a9b; 
+    color: #fff; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais forte para o efeito */
+}
+
+/*                CONFIGURACOES QUERY DE RESPONSIVIDADE             */
+
+/* Para telas menores que 1024px (tablets) */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column; 
+        height: auto;
+    }
+
+    .left-container, .screen {
+        width: 100%; 
+        height: auto;
+    }
+
+    .image-text {
+        font-size: 18px; 
+        margin-bottom: 30px; 
+    }
+
+    .screen__image {
+        max-width: 60%; 
+    }
+}
+
+/* Para telas menores que 768px (smartphones) */
+@media (max-width: 768px) {
+    .image-text {
+        font-size: 16px; 
+        margin-bottom: 20px;
+    }
+
+    .login__input {
+        padding: 8px 12px; 
+    }
+
+    .login__submit {
+        font-size: 12px; 
+        padding: 12px 16px;
+    }
+
+    .screen__image {
+        max-width: 60%; 
+    }
+}
+
+/* Para telas menores que 480px (smartphones em modo retrato) */
+@media (max-width: 480px) {
+    .image-text {
+      padding-left: 20px;
+        font-size: 10px;
+        margin-bottom: 23px;
+    }
+
+    .login__submit {
+        padding: 20px 24px; 
+    }
+
+    .screen__image {
+      padding-bottom: 30px;
+        max-width: 60%; 
+    }
+}

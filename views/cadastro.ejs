@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <link rel="stylesheet" href="/telacadastrocss/style.css">
+    <link rel="stylesheet" href="/telainicialcss/header.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <nav class="cabecalho_menu">
+        <img class="imagem_logo" src="/img/nome_logo.png" alt="Logo da empresa">
+        <ul class="nav_list" id="section1">
+            <li><a class="cabecalho_menu_link" href="/home">Pagina Inicial</a></li>
+            <li><a class="cabecalho_menu_link" href="/login">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="screen">
+        <div class="screen__content">
+
+            <h1>
+                Cadastre-se
+            </h1>
+
+          <!-- Formulário de cadastro -->
+          <form class="login" action="/cadastro/addClient" method="POST"> 
+
+            <div class="login__field">
+                <i class="login__icon fas fa-user"></i>
+                <input type="text" class="login__input" name="nome" placeholder="Nome Completo" required>
+            </div>
+        
+            <!-- Campo de E-mail -->
+            <div class="login__field">
+                <i class="login__icon fas fa-envelope"></i>
+                <input type="email" class="login__input" name="email" placeholder="E-mail" required>
+            </div>
+        
+            <!-- Campo de Matrícula -->
+            <div class="login__field">
+                <i class="login__icon fas fa-id-badge"></i>
+                <input type="text" class="login__input" name="matricula" placeholder="Matrícula" required>
+            </div>
+        
+            <!-- Campo de Senha -->
+            <div class="login__field">
+                <i class="login__icon fas fa-lock"></i>
+                <input type="password" class="login__input" name="senha" placeholder="Senha" required>
+            </div>
+        
+            <!-- Campo de Confirmação de Senha -->
+            <div class="login__field">
+                <i class="login__icon fas fa-lock"></i>
+                <input type="password" class="login__input" name="confirmarSenha" placeholder="Confirmar Senha" required>
+            </div>
+        
+            <!-- Botão de envio do formulário -->
+            <button class="button login__submit" type="submit">
+                <span class="button__text">Cadastrar</span>
+            </button>
+        </form>
+        
+        </div>
+
+        <!-- AREA DO Background com formas PARA o design visual do formulário -->
+        <div class="screen__background">
+            <span class="screen__background__shape screen__background__shape4"></span>
+            <span class="screen__background__shape screen__background__shape3"></span>        
+            <span class="screen__background__shape screen__background__shape2"></span>
+            <span class="screen__background__shape screen__background__shape1"></span>
+        </div>
+    </div>
+</div>
+
+
+  <script src="/js/cadastro.js"></script>
+</body>
+</html>

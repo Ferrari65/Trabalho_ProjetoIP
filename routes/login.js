@@ -5,7 +5,7 @@ const pool = require('../db/db.js');
 
 // Renderiza a página de login
 router.get('/', function(req, res) {
-  res.render('Login');
+  res.render('login');
 });
 
 router.post('/autentication', async (req, res) => {
@@ -22,7 +22,7 @@ router.post('/autentication', async (req, res) => {
       return res.status(401).json({ error: 'Senha incorreta.' });
     }
 
-    res.status(200).json({ message: 'Login Efetuado com Sucesso!' });
+    res.redirect('/listagem');
   } catch (error) {
     res.status(500).json({ error: 'Erro interno no servidor' })
   }

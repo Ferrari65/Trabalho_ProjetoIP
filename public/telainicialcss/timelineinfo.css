@@ -1,0 +1,205 @@
+#section3 {
+    background: linear-gradient(347deg, #6B26FE -35.45%, #181B31 29.36%, #141A28 59.26%);
+    color: white;
+    padding: 40px;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.section3INFO {
+    width: 40%; /* Ou o valor que você preferir para a largura */
+    padding-left: 100px;
+}
+
+.Simplifiquesecingo3 {
+    font-size: 30px; /* Tamanho maior para destacar o título */
+    font-weight: bold;
+    padding-top: 130px;
+    padding-left: 25px;
+    padding-bottom: 30px;
+}
+
+.gerenciamento_section3 {
+    font-size: 24px;
+    padding-left: 25px;
+}
+
+.Simplifique_strong {
+    color: #8B5ACF; /* Cor para o texto em negrito */
+}
+
+.timeline-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline {
+    list-style: none;
+    position: relative;
+    padding: 0;
+    text-align: right; /* Alinha toda a timeline à direita */
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    right: 0; 
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: #6B26FE;
+    z-index: 0;
+}
+
+.timeline li {
+    position: relative;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s, transform 1s;
+    text-align: right; /* Alinha cada item da timeline à direita */
+}
+
+.timeline-content {
+    border: 2px solid #8B5ACF;
+    display: inline-block; /* Garante alinhamento correto */
+    text-align: left;
+    margin-right: 50px; /* Afasta o conteúdo da borda direita */
+    background: transparent;
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    width: 380px; /* Define largura fixa para uniformizar o tamanho */
+    height: 150px; /* Define altura fixa para uniformizar o tamanho */
+    box-sizing: border-box; /* Garante que padding não altere as dimensões */
+    z-index: 1; /* Coloca o conteúdo acima da linha */
+}
+
+.timeline-content h3 {
+    font-size: 15px;
+    margin-bottom: 4px;
+    text-align: flex-start;
+}
+
+.timeline-content p {
+    font-size: 16px;
+    text-align: flex-start;
+}
+
+.timeline li::before {
+    content: '';
+    position: absolute;
+    right: -10px; /* Posiciona a bolinha no lado direito */
+    top: 50%; /* Centraliza a bolinha no meio do item */
+    transform: translateY(-50%); /* Ajuste fino para centralizar */
+    width: 20px;
+    height: 20px;
+    background-color: #6B26FE;
+    border-radius: 50%;
+    border: 3px solid white;
+    z-index: 1;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.timeline li.in-view::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Atraso para os itens da timeline */
+.timeline li.in-view {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.timeline li:nth-child(1).in-view {
+    transition-delay: 0.3s;
+}
+
+.timeline li:nth-child(2).in-view {
+    transition-delay: 0.6s;
+}
+
+.timeline li:nth-child(3).in-view {
+    transition-delay: 0.9s;
+}
+
+.timeline li:nth-child(4).in-view {
+    transition-delay: 1.2s;
+}
+
+/* Efeito de hover */
+.timeline li:hover .timeline-content {
+    background-color: #8B5ACF; /* Cor ao passar o mouse */
+}
+
+/* Adiciona hover na bolinha */
+.timeline li:hover::before {
+    transform: scale(1.3);
+    transition: transform 0.3s ease;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .section3INFO {
+        width: 50%; /* Ajusta a largura em telas menores */
+        padding-left: 50px;
+    }
+
+    .Simplifiquesecingo3 {
+        font-size: 28px;
+    }
+
+    .gerenciamento_section3 {
+        font-size: 22px;
+    }
+
+    .timeline-content {
+        width: 320px; /* Ajusta a largura da timeline em telas menores */
+        height: 180px; /* Ajusta a altura das caixas da timeline */
+    }
+
+    .timeline li::before {
+        width: 18px; /* Reduz o tamanho da bolinha */
+        height: 18px; /* Reduz o tamanho da bolinha */
+    }
+}
+
+@media (max-width: 768px) {
+    #section3 {
+        flex-direction: column; /* Torna o layout em coluna */
+        padding: 20px; /* Reduz o padding para telas menores */
+    }
+
+    .section3INFO {
+        width: 100%; /* Aumenta a largura para ocupar toda a tela */
+        padding-left: 0;
+        padding-bottom: 20px; /* Adiciona um espaço extra embaixo */
+    }
+
+    .Simplifiquesecingo3 {
+        font-size: 24px;
+        padding-left: 0;
+        padding-top: 80px; /* Ajusta o padding superior */
+    }
+
+    .gerenciamento_section3 {
+        font-size: 20px;
+    }
+
+    .timeline-content {
+        width: 100%; /* Faz as caixas da timeline ocuparem toda a largura disponível */
+        height: auto; /* Ajusta a altura para o conteúdo */
+    }
+
+    .timeline li::before {
+        width: 16px; /* Ajusta o tamanho da bolinha */
+        height: 16px; /* Ajusta o tamanho da bolinha */
+    }
+}

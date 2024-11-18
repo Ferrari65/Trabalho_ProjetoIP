@@ -1,0 +1,150 @@
+
+.footer-conteudo{
+    padding: 20px;
+    font-family: 'Poppins' , 'sans-serif'; 
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    background: linear-gradient(347deg, #6B26FE -35.45%, #181B31 29.36%, #141A28 59.26%); ;
+    
+}
+
+/* CONFIGURAÇOES INFO ENTRE EM CONTATO */
+.entre{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    
+}
+
+.icons_contato{  /*  AQUI ESTA AS CONFIGURACOES DAS IMAGENS DO FOOTER*/
+    width: 24px;
+}
+
+.informacao_contato{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.informacao_contato a {
+  color: #ffffff; /* Cor inicial do link */
+  text-decoration: none; /* Remove o sublinhado */
+  transition: color 0.3s ease; /* Animação suave na mudança de cor */
+}
+
+.informacao_contato a:hover {
+  color: #8B5ACF; /* Nova cor ao passar o mouse */
+  text-decoration: underline; /* Adiciona um sublinhado no hover */
+}
+
+/* CONFIGURACOES DOS BOTOES DE CONTATO DO FOOTER*/
+
+.button_contato{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    gap: 10px;
+}
+
+.github {
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-duration: .4s;
+    cursor: pointer;
+    position: relative;
+    background-color: rgb(31, 31, 31);
+    overflow: hidden;
+  }
+  
+  .svgIcon {
+    transition-duration: .3s;
+  }
+  
+  .svgIcon path {
+    fill: white;
+  }
+  
+  .text {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    width: 120px;
+    font-weight: 600;
+    opacity: 0;
+    transition-duration: .4s;
+  }
+  
+  .github:hover {
+    width: 110px;
+    transition-duration: .4s;
+    border-radius: 30px;
+  }
+  
+  .github:hover .text {
+    opacity: 1;
+    transition-duration: .4s;
+  }
+  
+  .github:hover .svgIcon {
+    opacity: 0;
+    transition-duration: .3s;
+  }
+
+  /*                          CONFIG BUTTO LINKEDIN */
+
+
+.Linkedin {
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    position: relative;
+    background: #0274b3;
+  }
+  
+  .svgIcon {
+    transition-duration: 0.3s;
+  }
+  
+  .svgIcon path {
+    fill: white;
+  }
+  
+  .text {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    width: 120px;
+    font-weight: 600;
+    opacity: 0;
+    transition-duration: 0.4s;
+  }
+  
+  .Linkedin:hover {
+    width: 110px;
+    transition-duration: 0.4s;
+    border-radius: 30px;
+  }
+  
+  .Linkedin:hover .text {
+    opacity: 1;
+    transition-duration: 0.4s;
+  }
+  
+  .Linkedin:hover .svgIcon {
+    opacity: 0;
+    transition-duration: 0.3s;
+  }
+  

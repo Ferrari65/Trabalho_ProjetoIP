@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/TelaLoginCSS/style.css">
+    <link rel="stylesheet" href="/telainicialcss/header.css">
+    <link rel="stylesheet" href="/telainicialcss/footer.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <nav class="cabecalho_menu">
+            <img class="imagem_logo" src="/img/nome_logo.png" alt="Logo da empresa">
+            <ul class="nav_list" id="section1">
+                <li><a class="cabecalho_menu_link" href="/home">Página Inicial</a></li>
+                <li><a class="cabecalho_menu_link" href="/cadastro">Cadastre-se</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="left-container">
+            <div class="image-text">
+                <h1>Preencha com suas Informações para efetuar o <strong>Login</strong></h1>
+            </div>
+            <div class="image-container">
+                <img src="/TelaLoginCSS/loginIMG/imagemTELALOGIN.png" alt="Imagem de Login" class="screen__image">
+            </div>
+        </div>
+
+        <!-- Formulário de Login -->
+        <div class="screen">
+            <div class="screen__right">
+                <div class="login">
+                    <h2>Login</h2>
+                    <form action="/login/autentication" method="POST"> 
+                        <div class="login__field">
+                            <input type="email" id="email" name="email" class="login__input" placeholder="Email" required>
+                        </div>
+                        <div class="login__field">
+                            <input type="password" id="senha" name="senha" class="login__input" placeholder="Senha" required>
+                        </div>
+                        <div class="login__field">
+                            <button type="submit" class="login__submit">Entrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

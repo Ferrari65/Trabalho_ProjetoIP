@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 
 /* Renderiza a página de login */
 router.get('/', function(req, res, next) {
-  res.render('TelaDeCadastro');
+  res.render('cadastro');
 });
 
 router.post('/addClient', async (req, res, next) => {
@@ -18,7 +18,7 @@ router.post('/addClient', async (req, res, next) => {
     const result = await pool.query(
       "INSERT INTO usuario(matricula, nome, email, senha) VALUES ($1, $2, $3, $4)", [matricula, nome, email, hashedPassword]
     );
-    res.redirect("/sucesso");
+    res.redirect("/sucesso ");
   } catch(error) {
     res.status(400).json({ error: error.message });
   }
