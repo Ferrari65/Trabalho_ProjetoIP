@@ -42,6 +42,7 @@
                         <div class="login__field">
                             <input type="password" id="senha" name="senha" class="login__input" placeholder="Senha" required>
                         </div>
+                        <div id="root"></div>
                         <div class="login__field">
                             <button type="submit" class="login__submit">Entrar</button>
                         </div>
@@ -49,7 +50,14 @@
                 </div>
             </div>
         </div>
-
     </div>
+
+    <script>
+        // Exibe um alerta se houver uma mensagem de erro
+        const errorMessage = "<%= typeof error !== 'undefined' ? error : '' %>";
+        if (errorMessage) {
+            alert(errorMessage);
+        }
+    </script>
 </body>
 </html>

@@ -28,7 +28,7 @@
             </h1>
 
           <!-- Formulário de cadastro -->
-          <form class="login" action="/cadastro/addClient" method="POST"> 
+          <form class="login" action="/cadastro/addClient" method="POST" onsubmit="return verificacaoSenha()">
 
             <div class="login__field">
                 <i class="login__icon fas fa-user"></i>
@@ -44,7 +44,7 @@
             <!-- Campo de Matrícula -->
             <div class="login__field">
                 <i class="login__icon fas fa-id-badge"></i>
-                <input type="text" class="login__input" name="matricula" placeholder="Matrícula" required>
+                <input type="number" class="login__input" name="matricula" placeholder="Matrícula" required>
             </div>
         
             <!-- Campo de Senha -->
@@ -63,7 +63,7 @@
             <button class="button login__submit" type="submit">
                 <span class="button__text">Cadastrar</span>
             </button>
-        </form>
+          </form>
         
         </div>
 
@@ -77,7 +77,26 @@
     </div>
 </div>
 
+    <!-- Validação de Senhas -->
+    <script>
+        function verificacaoSenha() {
+            // Captura os valores dos campos de senha e confirmação de senha
+            const senha = document.querySelector('input[name="senha"]').value;
+            const confirmarSenha = document.querySelector('input[name="confirmarSenha"]').value;
 
-  <script src="/js/cadastro.js"></script>
+            // Verifica se os campos são iguais
+            if (senha !== confirmarSenha) {
+                // Exibe um alerta caso sejam diferentes
+                alert('As senhas não coincidem. Por favor, verifique e tente novamente.');
+                return false; // Impede o envio do formulário
+            }
+
+            // Retorna verdadeiro se as senhas forem iguais, permitindo o envio
+            return true;
+        }
+    </script>
+
+    <!-- Script externo -->
+    <script src="/js/cadastro.js"></script>
 </body>
 </html>
