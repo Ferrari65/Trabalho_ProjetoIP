@@ -128,6 +128,7 @@ h1{
 
 /* Estilo dos Inputs */
 .login__input {
+    color: white;
     border: none;
     border-bottom: 2px solid #D1D1D4;
     background: none;

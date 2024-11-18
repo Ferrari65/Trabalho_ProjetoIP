@@ -34,6 +34,7 @@ body {
 
 /* Estilizacao h2 login */
 h2 {
+    font-size: 12px;
     color: #554ab8;
 }
 
@@ -58,9 +59,10 @@ h2 {
 /* Texto acima da imagem */
 .image-text {
     text-align: center;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 700;
     color: #fff;
+    margin-top: 70px;
     margin-bottom: 60px; 
 }
 
@@ -134,7 +136,7 @@ strong {
 .login__input:focus,
 .login__input:hover {
     outline: none;
-    border-bottom-color: #6A679E; /* Mudança na borda ao focar ou passar o mouse */
+    border-bottom-color: #6A679E; 
 }
 
 /* Botão de Submissão */
@@ -173,7 +175,7 @@ strong {
 .login__submit:hover {
     background-color: #2f2a9b; 
     color: #fff; 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais forte para o efeito */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 /*                CONFIGURACOES QUERY DE RESPONSIVIDADE             */
@@ -191,7 +193,7 @@ strong {
     }
 
     .image-text {
-        font-size: 18px; 
+        font-size: 15px; 
         margin-bottom: 30px; 
     }
 
