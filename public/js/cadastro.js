@@ -1,19 +1,3 @@
-// Middleware para processar dados do formulário
-app.use(express.urlencoded({ extended: true }));
-
-app.post('/cadastro', (req, res) => {
-
-    const { nome, email, matricula, senha, confirmarSenha } = req.body;
-
-    if (senha !== confirmarSenha) {
-        return res.send('As senhas não coincidem!');
-    }
-
-    console.log(`Cadastro realizado com sucesso para: ${nome}, ${email}, ${matricula}`);
-
-    res.redirect('/SucessoCadastro');
-});
-
 document.querySelector('.login').addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -47,7 +31,13 @@ document.querySelector('.login').addEventListener('submit', function (e) {
     // Validação de Matrícula
     if (matricula.value.trim() === "") {
         erros.push({ field: matricula, message: "O campo Matrícula é obrigatório." });
+    } else if (!/^\d{5}$/.test(matricula.value.trim())) {
+        erros.push({ 
+            field: matricula, 
+            message: "A Matrícula deve conter exatamente 5 números." 
+        });
     }
+
 
     // Validação de Senha
     if (senha.value.length < 6) {
@@ -76,5 +66,5 @@ document.querySelector('.login').addEventListener('submit', function (e) {
     } else {
         // Se tudo estiver correto, envia o formulário
         e.target.submit();
-    }
+    }
 });
