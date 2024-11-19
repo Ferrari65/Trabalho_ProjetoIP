@@ -240,3 +240,20 @@ strong {
         max-width: 60%; 
     }
 }
+
+/*   TESTE PARA CASO TENHA UM ERRO */
+
+.error {
+    border: 2px solid red;
+    background-color: #ffe6e6 ;
+    color: #19191B;
+    border-radius: 18px;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
