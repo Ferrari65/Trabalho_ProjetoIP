@@ -68,3 +68,19 @@ document.querySelector('.login').addEventListener('submit', function (e) {
         e.target.submit();
     }
 });
+
+function verificacaoSenha() {
+    // Captura os valores dos campos de senha e confirmação de senha
+    const senha = document.querySelector('input[name="senha"]').value;
+    const confirmarSenha = document.querySelector('input[name="confirmarSenha"]').value;
+
+    // Verifica se os campos são iguais
+    if (senha !== confirmarSenha) {
+        // Exibe um alerta caso sejam diferentes
+        alert('As senhas não coincidem. Por favor, verifique e tente novamente.');
+        return false; // Impede o envio do formulário
+    }
+
+    // Retorna verdadeiro se as senhas forem iguais, permitindo o envio
+    return true;
+}
