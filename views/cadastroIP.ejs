@@ -6,8 +6,15 @@
     <title>Cadastro IP</title>
 </head>
 <body>
-    <form action="" method="POST">
-        <input type="text" class="login__input" name="nome" placeholder="Nome Completo" required>
+    <h1>Cadastrar IP</h1>
+    <form action="/cadastroIP/addIP" method="POST">
+        <label for="utilizador">Utilizador:</label>
+        <input type="text" name="utilizador" placeholder="Nome do Utilizador" required>
+        <label for="matricula">Matricula:</label>
+        <input type="number" name="matricula" placeholder="Matricula do Utilizador" required>
+        <label for="ip">IP:</label>
+        <input type="text" name="ip" placeholder="IP Utilizado" required>
+        <button type="submit">cadastra esse inferno</button>
     </form>
 </body>
 </html>

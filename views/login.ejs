@@ -35,9 +35,19 @@
             <div class="screen__right">
                 <div class="login">
                     <h2>Login</h2>
+<<<<<<< HEAD
 
                     <!-- MENSAGEM DE ERRO -->
                     <% if (error) { %>
+=======
+                    <% if (error) { %>
+                        <div class="error-message" style="color: red; margin-bottom: 15px;">
+                            <%= error %>
+                        </div>
+                    <% } %>
+                    
+                    <!-- Exibe mensagem de erro apenas após tentativa de login -->
+>>>>>>> 3c9387157fe9826447be61677fb9d40dbd4e83bd
                         <div class="error-message" style="color: red; margin-bottom: 15px;">
                             <%= error %>
                         </div>

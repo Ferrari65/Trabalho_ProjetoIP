@@ -14,7 +14,7 @@
             <img class="imagem_logo" src="/img/nome_logo.png" alt="Logo da empresa">
             <ul class="nav_list" id="section1">
                 <li><a class="cabecalho_menu_link" href="/listagem">Lista de IP</a></li>
-                <li><a class="cabecalho_menu_link" href="#">Cadastro de IP</a></li>
+                <li><a class="cabecalho_menu_link" href="/cadastroIP">Cadastro de IP</a></li>
                 <a href="/home">
                     <button class="logout-button">Sair</button> <!-- Botão de logout no header -->
                 </a>
@@ -47,121 +47,15 @@
             </tr>
         </thead>
         <tbody>
+            <% ips.forEach(ip => { %>
             <!-- Dados da Tabela -->
             <tr>
-                <td>João Silva</td>
-                <td>123456</td>
-                <td>192.168.1.1</td>
-                <td>01/10/2024</td>
+                <td><%= ip.utilizador %></td>
+                <td><%= ip.matricula_utilizador %></td>
+                <td><%= ip.ip %></td>
+                <td><%= format(ip.data_registro, 'dd/MM/yyyy') %></td>
             </tr>
-            <tr>
-                <td>Maria Oliveira</td>
-                <td>654321</td>
-                <td>192.168.1.2</td>
-                <td>02/10/2024</td>
-            </tr>
-            <tr>
-                <td>Pedro Souza</td>
-                <td>112233</td>
-                <td>192.168.1.3</td>
-                <td>03/10/2024</td>
-            </tr>
-            <tr>
-                <td>Ana Costa</td>
-                <td>445566</td>
-                <td>192.168.1.4</td>
-                <td>04/10/2024</td>
-            </tr>
-            <tr>
-                <td>Lucas Pereira</td>
-                <td>778899</td>
-                <td>192.168.1.5</td>
-                <td>05/10/2024</td>
-            </tr>
-            <tr>
-                <td>Fernanda Lima</td>
-                <td>223344</td>
-                <td>192.168.1.6</td>
-                <td>06/10/2024</td>
-            </tr>
-            <tr>
-                <td>Carlos Mendes</td>
-                <td>998877</td>
-                <td>192.168.1.7</td>
-                <td>07/10/2024</td>
-            </tr>
-            <tr>
-                <td>Gustavo Martins</td>
-                <td>123789</td>
-                <td>192.168.1.8</td>
-                <td>08/10/2024</td>
-            </tr>
-            <tr>
-                <td>Patrícia Rocha</td>
-                <td>987654</td>
-                <td>192.168.1.9</td>
-                <td>09/10/2024</td>
-            </tr>
-            <tr>
-                <td>Roberto Alves</td>
-                <td>135792</td>
-                <td>192.168.1.10</td>
-                <td>10/10/2024</td>
-            </tr>
-            <tr>
-                <td>Juliana Lima</td>
-                <td>246810</td>
-                <td>192.168.1.11</td>
-                <td>11/10/2024</td>
-            </tr>
-            <tr>
-                <td>Marcos Silva</td>
-                <td>369258</td>
-                <td>192.168.1.12</td>
-                <td>12/10/2024</td>
-            </tr>
-            <tr>
-                <td>Rafaela Costa</td>
-                <td>456789</td>
-                <td>192.168.1.13</td>
-                <td>13/10/2024</td>
-            </tr>
-            <tr>
-                <td>Eduardo Lima</td>
-                <td>567890</td>
-                <td>192.168.1.14</td>
-                <td>14/10/2024</td>
-            </tr>
-            <tr>
-                <td>Julio Henrique</td>
-                <td>678901</td>
-                <td>192.168.1.15</td>
-                <td>15/10/2024</td>
-            </tr>
-            <tr>
-                <td>Beatriz Martins</td>
-                <td>789012</td>
-                <td>192.168.1.16</td>
-                <td>16/10/2024</td>
-            </tr>
-            <tr>
-                <td>Henrique Souza</td>
-                <td>890123</td>
-                <td>192.168.1.17</td>
-                <td>17/10/2024</td>
-            </tr>
-            <tr>
-                <td>Vitoria Pereira</td>
-                <td>901234</td>
-                <td>192.168.1.18</td>
-                <td>18/10/2024</td>
-            </tr>
-            <tr>
-                <td>Fabiana Oliveira</td>
-                <td>112233</td>
-                <td>192.168.1.19</td>
-                <td>19/10/2024</td>
-            </tr>
+            <% }) %>
         </tbody>
     </table>
 
