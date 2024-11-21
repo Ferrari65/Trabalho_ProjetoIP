@@ -27,6 +27,14 @@
                 Cadastre-se
             </h1>
 
+
+                    <!-- Exibe mensagem de erro apenas após tentativa de login -->
+                    <% if (error) { %>
+                        <div class="error-message" style="color: red; margin-bottom: 15px;">
+                            <%= error %>
+                        </div>
+                    <% } %>
+
           <!-- Formulário de cadastro -->
           <form class="login" action="/cadastro/addClient" method="POST" onsubmit="return verificacaoSenha()">
 
@@ -77,7 +85,6 @@
     </div>
 </div>
 
-    <!-- Script externo -->
     <script src="/js/cadastro.js"></script>
 </body>
 </html>

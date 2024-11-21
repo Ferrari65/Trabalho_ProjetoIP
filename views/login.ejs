@@ -35,9 +35,13 @@
             <div class="screen__right">
                 <div class="login">
                     <h2>Login</h2>
-                    
-                    <!-- Exibe mensagem de erro apenas após tentativa de login -->
+
+                    <!-- MENSAGEM DE ERRO -->
+                    <% if (error) { %>
                         <div class="error-message" style="color: red; margin-bottom: 15px;">
+                            <%= error %>
+                        </div>
+                    <% } %>
 
                     <form action="/login/autentication" method="POST"> 
                         <div class="login__field">
@@ -57,6 +61,5 @@
     </div>
 
     <script src="/js/login.js"></script>
-    <script src="/js/ErroLogin.js"></script>
 </body>
 </html>
