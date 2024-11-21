@@ -62,7 +62,7 @@
         // Função para preencher a tabela com dados
         function populateTable() {
             const tableBody = document.getElementById('tableBody');
-            tableBody.innerHTML = ''; 
+            tableBody.innerHTML = ''; // Limpar a tabela antes de preencher
 
             ips.forEach(ip => {
                 const row = document.createElement('tr');
