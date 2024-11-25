@@ -39,7 +39,9 @@ router.post('/autentication', async (req, res) => {
       });
     }
 
-    res.redirect('/listagem');
+    req.session.usuarioLogado = { nome: email };
+    console.log(req.session.usuarioLogado);
+    res.redirect('/lista');
   } catch (error) {
 
     // MENSAGEM DE ERRO

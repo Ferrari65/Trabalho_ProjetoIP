@@ -2,9 +2,10 @@ var express = require('express');
 var router = express.Router();
 const pool = require('../db/db.js');
 const { format } = require('date-fns');
+const verificaAutenticacao = require('../public/functions/midleware.js');
 
 // Renderiza a página de cadastro de IP
-router.get('/', function(req, res, next) {
+router.get('/', verificaAutenticacao, function(req, res, next) {
   res.render('cadastroIP');
 });
 

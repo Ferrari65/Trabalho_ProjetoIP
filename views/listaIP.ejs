@@ -13,11 +13,11 @@
         <nav class="cabecalho_menu">
             <img class="imagem_logo" src="/img/nome_logo.png" alt="Logo da empresa">
             <ul class="nav_list" id="section1">
-                <li><a class="cabecalho_menu_link" href="/listagem">Lista de IP</a></li>
+                <li><a class="cabecalho_menu_link" href="/lista">Lista de IP</a></li>
                 <li><a class="cabecalho_menu_link" href="/cadastroIP">Cadastro de IP</a></li>
-                <li><a href="/home">
-                    <button class="logout-button">Sair</button> <!-- Botão de logout no header -->
-                </a></li>
+                <li><form action="/lista/logout">
+                    <button class="logout-button" type="submit">Sair</button> <!-- Botão de logout no header -->
+                </form></li>
             </ul>
         </nav>
     </header>
