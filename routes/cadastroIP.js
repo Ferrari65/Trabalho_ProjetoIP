@@ -22,7 +22,7 @@ router.post('/addIP', async (req, res) => {
       [utilizador, matricula, ip, dataAtual]
     );
     
-    res.redirect("/listagem");
+    res.redirect("/lista");
   } catch (error) {
     res.status(409).json({ error: error.message });
   }
