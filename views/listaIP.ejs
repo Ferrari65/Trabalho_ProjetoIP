@@ -44,43 +44,28 @@
                 <th>Matrícula</th>
                 <th>Endereço de IP</th>
                 <th>Data de Cadastro</th>
+                <th>Ações</th>
             </tr>
         </thead>
-        <tbody id="tableBody">
-            <!-- Dados da Tabela serão inseridos aqui via JavaScript -->
+        <tbody>
+            <% ips.forEach(ip => { %>
+            <!-- Dados da Tabela -->
+            <tr>
+                <td><%= ip.utilizador %></td>
+                <td><%= ip.matricula_utilizador %></td>
+                <td><%= ip.ip %></td>
+                <td><%= format(ip.data_registro, 'dd/MM/yyyy') %></td>
+                <td>
+                    <form action="/lista/deletar/<%= ip.id_ip %>" method="POST">
+                        <button type="submit">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
         </tbody>
     </table>
 
     <script>
-        // Dados simulados para a tabela (substitua com dados reais do servidor)
-        const ips = [
-            { utilizador: 'Carlos Silva', matricula_utilizador: '12345', ip: '192.168.0.1', data_registro: '2024-11-15' },
-            { utilizador: 'Ana Souza', matricula_utilizador: '12346', ip: '192.168.0.2', data_registro: '2024-11-16' },
-            { utilizador: 'José Oliveira', matricula_utilizador: '12347', ip: '192.168.0.3', data_registro: '2024-11-17' },
-        ];
-
-        // Função para preencher a tabela com dados
-        function populateTable() {
-            const tableBody = document.getElementById('tableBody');
-            tableBody.innerHTML = ''; // Limpar a tabela antes de preencher
-
-            ips.forEach(ip => {
-                const row = document.createElement('tr');
-                const dataRegistro = new Date(ip.data_registro).toLocaleDateString('pt-BR');
-
-                row.innerHTML = `
-                    <td>${ip.utilizador}</td>
-                    <td>${ip.matricula_utilizador}</td>
-                    <td>${ip.ip}</td>
-                    <td>${dataRegistro}</td>
-                `;
-                tableBody.appendChild(row);
-            });
-        }
-
-        // Chama a função para preencher a tabela ao carregar a página
-        window.onload = populateTable;
-
         // Função para filtrar dados da tabela com base na pesquisa e no filtro
         document.getElementById('searchInput').addEventListener('input', filterTable);
         document.getElementById('filterSelect').addEventListener('change', filterTable);

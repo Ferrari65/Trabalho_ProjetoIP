@@ -19,7 +19,7 @@ app.use('/home', homeRouter);
 app.use('/login', loginRouter);
 app.use('/cadastro', cadastroRouter)
 app.use('/sucesso', sucessoRouter)
-app.use('/listagem', listaRouter)
+app.use('/lista', listaRouter)
 app.use('/cadastroIP', IPRouter)
 
 app.listen(3000, () => {
