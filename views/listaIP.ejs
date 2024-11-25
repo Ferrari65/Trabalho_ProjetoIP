@@ -38,30 +38,17 @@
 
     <!-- Tabela de informações -->
     <table id="infoTable">
-        <thead>
-            <tr>
-                <th>Nome</th>
+        <table border="1">
+            <thead>
+              <tr>
+                <th>Utilizador</th>
                 <th>Matrícula</th>
                 <th>Endereço de IP</th>
                 <th>Data de Cadastro</th>
-                <th>Ações</th>
             </tr>
         </thead>
-        <tbody>
-            <% ips.forEach(ip => { %>
-            <!-- Dados da Tabela -->
-            <tr>
-                <td><%= ip.utilizador %></td>
-                <td><%= ip.matricula_utilizador %></td>
-                <td><%= ip.ip %></td>
-                <td><%= format(ip.data_registro, 'dd/MM/yyyy') %></td>
-                <td>
-                    <form action="/lista/deletar/<%= ip.id_ip %>" method="POST">
-                        <button type="submit">Excluir</button>
-                    </form>
-                </td>
-            </tr>
-            <% }) %>
+        <tbody id="tableBody">
+            <!-- Dados da Tabela serão inseridos aqui via JavaScript -->
         </tbody>
     </table>
 
