@@ -57,10 +57,8 @@
                 <td><%= ip.ip %></td>
                 <td><%= format(ip.data_registro, 'dd/MM/yyyy') %></td>
                 <td>
-                    <form action="/lista/deletar/<%= ip.id_ip %>" method="POST">
-                        <button type="submit">Excluir</button>
-                    </form>
-                </td>
+                 <form action="/lista/deletar/<%= ip.id_ip %>" method="POST">                        <button type="submit">Excluir</button>                   
+                </form></td>
             </tr>
             <% }) %>
         </tbody>
