@@ -27,7 +27,7 @@ document.querySelector('input[name="ip"]').addEventListener('input', function (e
 });
 
 // Validação no envio do formulário
-document.querySelector('form').addEventListener('submit', function (e) {
+document.querySelector('#formIP').addEventListener('submit', function (e) {
     e.preventDefault(); 
 
     const utilizador = document.querySelector('input[name="utilizador"]');
