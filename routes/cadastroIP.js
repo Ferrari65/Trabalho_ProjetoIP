@@ -9,24 +9,43 @@ router.get('/', verificaAutenticacao, function(req, res, next) {
   res.render('cadastroIP');
 });
 
-// LOGICAS DE VALIDAÇÃO
+
+// LÓGICAS DE VALIDAÇÃO
+
 
 // Rota para o envio de dados para o cadastro de IP
 router.post('/addIP', async (req, res) => {
   const { utilizador, matricula, ip } = req.body;
   const dataAtual = format(new Date(), 'yyyy/MM/dd');
 
+
+
   try {
     console.log({ utilizador, matricula, ip, dataAtual });
-    
+
+      // VALIDAÇÃO IP JÁ CADASTRADO
+    const existingIP = await pool.query("SELECT * FROM endereco_ip WHERE ip = $1", [ip]);
+
+    if (existingIP.rows.length > 0) {
+      return res.render('cadastroIP', {
+        error: 'IP já cadastrado.'
+      });
+    }
+
+    console.log('IP disponível para registro:', ip);
+    res.redirect('/lista');
+
     await pool.query(
       "INSERT INTO endereco_ip(utilizador, matricula_utilizador, ip, data_registro) VALUES ($1, $2, $3, $4)", 
       [utilizador, matricula, ip, dataAtual]
     );
-    
+
     res.redirect("/lista");
   } catch (error) {
-    res.status(409).json({ error: error.message });
+    console.error("Erro ao cadastrar IP:", error);
+    return res.render('cadastroIP', { 
+      error: 'Não foi possível cadastrar o IP. Por favor, tente novamente.'
+    });
   }
 });
 
@@ -34,32 +53,21 @@ router.post('/addIP', async (req, res) => {
 router.post('/autentication', async (req, res) => {
   const { utilizador, matricula, ip } = req.body;
 
-  // VALIDANDO CAMPOS OBRIGATORIOS
+  // VALIDANDO CAMPOS OBRIGATÓRIOS
   if (!utilizador || !matricula || !ip) {
     return res.render('cadastroIP', { 
-      error: 'Todos os campos são obrigatórios.' }
-    )}
-
-    try {
-      const existigIP = await pool.query("SELECT * FROM endereco_ip WHERE ip = $1", [ip]);
-    
-      if (result.rows.length > 0) {
-        return res.render('cadastroIP', {
-          error: 'IP já cadastrado.'
-        });
-      }
-    
-      const ipData = result.rows[0]; 
-      console.log(ipData);
-    
-      res.redirect("/lista");
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
+      error: 'Todos os campos são obrigatórios.'});
   }
-);
+})
 
-  //  VALIDAÇÃO IP JÁ CADASTRADO
+router.get('/logout', (req, res) => {
+  req.session.destroy((err) => {
+      if (err) {
+          return res.status(500).send('Erro ao fazer logout');
+      }
+      res.redirect('/login');
+  });
+});
 
 
 module.exports = router;
