@@ -38,14 +38,25 @@
 
     <!-- Tabela de informações -->
     <table id="infoTable">
-        <thead>
-            <tr>
-                <th>Nome</th>
+        <table border="1">
+            <thead>
+              <tr>
+                <th>Utilizador</th>
                 <th>Matrícula</th>
-                <th>Endereço de IP</th>
-                <th>Data de Cadastro</th>
-            </tr>
-        </thead>
+                <th>IP</th>
+                <th>Data de Registro</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td> ip.utilizador </td>
+                  <td> ip.matricula_utilizador </td>
+                  <td>ip.ip </td>
+                  <td>ip.data_registro </td>
+                </tr>
+            </tbody>
+          </table>
+          
         <tbody id="tableBody">
             <!-- Dados da Tabela serão inseridos aqui via JavaScript -->
         </tbody>
