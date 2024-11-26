@@ -10,59 +10,6 @@ body {
     color: #fff;
 }
 
-/* Header */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #141A28;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-header .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-}
-
-header nav ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-header nav ul li {
-    margin: 0 15px;
-}
-
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-header nav ul li a:hover {
-    color: #9369ca;
-}
-
-header .logout-button {
-    background-color: #6B26FE;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-header .logout-button:hover {
-    background-color: #8122c5;
-}
-
 /* Título */
 h1 {
     text-align: center;
@@ -106,6 +53,7 @@ table {
     background-color: #2a2e3d;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    font-size: 16px;
 }
 
 th, td {
@@ -115,7 +63,7 @@ th, td {
 }
 
 th {
-    background-color: #6B26FE;
+    background-color: #2a2e3d;
     color: #fff;
 }
 
@@ -124,7 +72,24 @@ td {
 }
 
 tr:hover {
-    background-color: #3a3e50;
+    background-color: #3F3D56;
+}
+
+.delet_button{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    width: 110px;
+    height: 40px;
+    background-color: #e62222;
+    color: white;
+}
+
+.delet_button:hover{
+    cursor: pointer;
+    background-color: #ff3636; 
+    transform: scale(1.1);
 }
 
 /* Responsividade para dispositivos móveis */

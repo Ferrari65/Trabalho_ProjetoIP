@@ -60,6 +60,13 @@
                   </div>
                   <div class="app-form-group">
                     <input class="app-form-control" name="ip" placeholder="Endereço IP" required>
+                    
+              <!-- Exibe mensagem de erro apenas após tentativa de login -->
+                    <% if (error) { %>
+                      <div class="error-message" style="color: red; margin-bottom: 15px;">
+                      <%= error %>
+                    </div>
+                  <% } %>
                   </div>
                   <div class="app-form-group buttons">
                     <button type="reset" class="app-form-button">CANCELAR</button>
