@@ -75,21 +75,52 @@ tr:hover {
     background-color: #3F3D56;
 }
 
+/*                           CRUD ESTILIZAÇÃO                          */
+
+.button_crud{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+svg{
+    width: 19px;
+}
+
 .delet_button{
     display: flex;
     align-items: center;
     gap: 10px;
     border-radius: 10px;
-    width: 110px;
+    width: 100px;
     height: 40px;
     background-color: #e62222;
     color: white;
+    border: 2px solid rgb(255, 255, 255);
 }
 
 .delet_button:hover{
     cursor: pointer;
     background-color: #ff3636; 
     transform: scale(1.1);
+}
+
+.button_edit{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    background-color: #0f0f0f;
+    color: rgb(255, 255, 255); 
+    border: 2px solid rgb(255, 255, 255);
+}
+.button_edit:hover{
+    cursor: pointer;
+    background-color: #00c635; 
+    transform: scale(1.1);
+
 }
 
 /* Responsividade para dispositivos móveis */

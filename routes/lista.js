@@ -41,7 +41,7 @@ router.get('/edit/:id_ip', async (req, res) => {
     const getIP = await pool.query('SELECT * FROM endereco_ip WHERE id_ip = $1', [id_ip]);
     const result = getIP.rows
     
-    res.render('editar', { result: getIP.rows[0] });
+    res.render('editar', { result: getIP.rows[0], error: null });
   } catch (error) {
     res.status(404).json({ error: error.message })
   }

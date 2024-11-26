@@ -2,85 +2,95 @@ document.querySelector('.login').addEventListener('submit', function (e) {
     e.preventDefault();
 
     // Pegando os campos
-    const nome = document.querySelector('input[name="nome"]');
-    const email = document.querySelector('input[name="email"]');
-    const matricula = document.querySelector('input[name="matricula"]');
-    const senha = document.querySelector('input[name="senha"]');
-    const confirmarSenha = document.querySelector('input[name="confirmarSenha"]');
+    const form = e.target;
+    const nome = form.querySelector('input[name="nome"]');
+    const email = form.querySelector('input[name="email"]');
+    const matricula = form.querySelector('input[name="matricula"]');
+    const senha = form.querySelector('input[name="senha"]');
+    const confirmarSenha = form.querySelector('input[name="confirmarSenha"]');
 
-    // Limpar classes de erro e mensagens anteriores
-    document.querySelectorAll('.error').forEach(field => field.classList.remove('error'));
-    document.querySelectorAll('.error-message').forEach(msg => msg.remove());
+    // Objeto de validações
+    const validacoes = [
+        {
+            campo: nome,
+            regra: /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/,
+            mensagem: "O nome deve conter apenas letras e espaços."
+        },
+        {
+            campo: email,
+            regra: /^[a-zA-Z0-9._-]+@(gmail\.com.br|Gmail\.com.br|hotmail\.com.br|Hotmail\.com.br|outlook\.com.br|Outlook\.com.br)$/i,
+            mensagem: "Use um e-mail válido (Gmail, Hotmail ou Outlook)."
+        },
+        {
+            campo: matricula,
+            regra: /^\d{5}$/,
+            mensagem: "A matrícula deve conter exatamente 5 números."
+        },
+        {
+            campo: senha,
+            regra: /^.{6,}$/,
+            mensagem: "A senha deve ter pelo menos 6 caracteres."
+        },
+        {
+            campo: confirmarSenha,
+            regra: senha.value,
+            mensagem: "As senhas não coincidem.",
+            comparar: true
+        }
+    ];
 
-    // Mensagens de erro
-    let erros = [];
+    // Limpar erros anteriores
+    limparErros();
 
-    // Validação de Nome completo
-    
-    const nomeRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
-    if (!nomeRegex.test(nome.value)) {
-        erros.push({ field: nome, message: "O nome completo deve conter apenas letras e espaços." });
-    }
+    // Validar campos
+    const erros = validarCampos(validacoes);
 
-    // Validação de Email (Gmail, Hotmail ou Outlook)
-    const emailRegex = /^[a-zA-Z0-9._-]+@(gmail\.com|hotmail\.com|outlook\.com)$/;
-    if (!emailRegex.test(email.value)) {
-        erros.push({ field: email, message: "Insira um e-mail válido dos provedores Gmail, Hotmail ou Outlook." });
-    }
-
-    // Validação de Matrícula
-    if (matricula.value.trim() === "") {
-        erros.push({ field: matricula, message: "O campo Matrícula é obrigatório." });
-    } else if (!/^\d{5}$/.test(matricula.value.trim())) {
-        erros.push({ 
-            field: matricula, 
-            message: "A Matrícula deve conter exatamente 5 números." 
-        });
-    }
-
-
-    // Validação de Senha
-    if (senha.value.length < 6) {
-        erros.push({ field: senha, message: "A senha deve ter pelo menos 6 caracteres." });
-    }
-
-    // Verificação de senhas coincidentes
-    if (senha.value !== confirmarSenha.value) {
-        erros.push({ field: confirmarSenha, message: "As senhas não coincidem." });
-    }
-
-    // Exibir erros
+    // Exibir erros ou submeter o formulário
     if (erros.length > 0) {
-        erros.forEach(erro => {
-            // Destacar campo com erro
-            erro.field.classList.add('error');
-
-            // Criar mensagem de erro
-            const errorMessage = document.createElement('div');
-            errorMessage.classList.add('error-message');
-            errorMessage.textContent = erro.message;
-
-            // Inserir mensagem após o campo com erro
-            erro.field.parentNode.appendChild(errorMessage);
-        });
+        exibirErros(erros);
     } else {
-        // Se tudo estiver correto, envia o formulário
-        e.target.submit();
+        form.submit();
     }
 });
 
-function verificacaoSenha() {
-    // Captura os valores dos campos de senha e confirmação de senha
-    const senha = document.querySelector('input[name="senha"]').value;
-    const confirmarSenha = document.querySelector('input[name="confirmarSenha"]').value;
+// Função para limpar erros
+function limparErros() {
+    document.querySelectorAll('.error').forEach(field => field.classList.remove('error'));
+    document.querySelectorAll('.error-message').forEach(msg => msg.remove());
+}
 
-    // Verifica se os campos são iguais
-    if (senha !== confirmarSenha) {
-        // Exibe um alerta caso sejam diferentes
-        alert('As senhas não coincidem. Por favor, verifique e tente novamente.');
-        return false; // Impede o envio do formulário
-    }
+// Função para validar os campos
+function validarCampos(validacoes) {
+    const erros = [];
 
-    // Retorna verdadeiro se as senhas forem iguais, permitindo o envio
-    return true;
+    validacoes.forEach(({ campo, regra, mensagem, comparar }) => {
+        const valor = campo.value.trim();
+
+        if (comparar) {
+            // Validação de confirmação de senha
+            if (valor !== regra) {
+                erros.push({ campo, mensagem });
+            }
+        } else if (!regra.test(valor)) {
+            erros.push({ campo, mensagem });
+        }
+    });
+
+    return erros;
+}
+
+// Função para exibir erros
+function exibirErros(erros) {
+    erros.forEach(({ campo, mensagem }) => {
+        // Adicionar classe de erro
+        campo.classList.add('error');
+
+        // Criar mensagem de erro
+        const errorMessage = document.createElement('div');
+        errorMessage.classList.add('error-message');
+        errorMessage.textContent = mensagem;
+
+        // Inserir mensagem no DOM
+        campo.parentNode.appendChild(errorMessage);
+    });
 }
