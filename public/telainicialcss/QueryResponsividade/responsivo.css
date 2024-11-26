@@ -1,0 +1,67 @@
+/* Responsividade */
+@media (max-width: 932px) {
+
+    .cabecalho {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cabecalho_menu {
+        flex-direction: column;
+        align-items: flex-start;
+
+    }
+
+    .imagem_logo {
+        align-self: center;
+        margin-bottom: 10px;
+    }
+
+    .nav_list {
+        flex-direction: row;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .cabecalho_menu_link {
+        font-size: 18px;
+        padding: 10px 20px;
+        width: 90%;
+        text-align: left;
+    }
+    .dot-nav {
+        display: none;
+    }
+
+    .imagem_telefone {
+        display: none;
+    }
+
+    .engrenagem_paragrafo{
+        width: 30px;
+        height: 30px;
+    }
+    
+    .Simplifique_paragrafo, .Gerencie_Seus_Endereços, .Bemvindo_textoprincipal {
+        font-size: 15px; 
+        text-align: flex-start; 
+
+    }
+
+    .buttons_tela_principal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    
+    .cadastro, .saiba_mais {
+        width: 80%; 
+        text-align: center;
+    }
+    main {
+        margin-top: 10px; /* Ajusta a distância no mobile */
+    }
+}
+
