@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar IP cadastrado</title>
+</head>
+<body>
+    <form class="app-form" id="formIP" action="/editarIP/saveIP" method="POST">
+        <!-- Campo oculto para enviar o id_ip -->
+        <input type="hidden" name="id_ip" value="<%= result.id_ip %>">
+
+        <div class="app-form-group">
+          <input class="app-form-control" name="utilizador" placeholder="Nome do Utilizador" value="<%= result.utilizador %>" required>
+        </div>
+        <div class="app-form-group">
+          <input class="app-form-control" name="matricula_utilizador" type="number" placeholder="Matricula do Utilizador" value="<%= result.matricula_utilizador %>" required>
+        </div>
+        <div class="app-form-group">
+          <input class="app-form-control" name="ip" placeholder="Endereço IP" value="<%= result.ip %>" required>
+        </div>
+        <div class="app-form-group buttons">
+          <button type="reset" class="app-form-button">CANCELAR</button>
+          <button type="submit" class="app-form-button">SALVAR</button>
+        </div>
+      </form>
+</body>
+</html>
