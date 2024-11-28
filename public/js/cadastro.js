@@ -18,7 +18,7 @@ document.querySelector('.login').addEventListener('submit', function (e) {
         },
         {
             campo: email,
-            regra: /^[a-zA-Z0-9._-]+@(gmail\.com.br|Gmail\.com.br|hotmail\.com.br|Hotmail\.com.br|outlook\.com.br|Outlook\.com.br)$/i,
+            regra: /^[a-zA-Z0-9._-]+@(gmail\.com|Gmail\.com|hotmail\.com|Hotmail\.com|outlook\.com|Outlook\.com)$/i,
             mensagem: "Use um e-mail válido (Gmail, Hotmail ou Outlook)."
         },
         {

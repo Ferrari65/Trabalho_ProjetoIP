@@ -26,10 +26,15 @@ router.post('/addIP', verificaAutenticacao, async (req, res) => {
       return res.render('cadastroIP', { error: 'IP já existente.' });
     }
 
+    console.log(req.session.usuarioLogado);
+    let getId_usuario = await pool.query('SELECT * FROM usuario WHERE email = $1', [req.session.usuarioLogado.nome]);
+    console.log(getId_usuario.rows[0]);
+    let id_usuario = getId_usuario.rows[0].id_usuario
+
     // Insere o novo IP no banco
     await pool.query(
-      "INSERT INTO endereco_ip(utilizador, matricula_utilizador, ip, data_registro) VALUES ($1, $2, $3, $4)", 
-      [utilizador, matricula, ip, dataAtual]
+      "INSERT INTO endereco_ip(utilizador, matricula_utilizador, ip, data_registro, id_usuario_cadastro) VALUES ($1, $2, $3, $4, $5)", 
+      [utilizador, matricula, ip, dataAtual, id_usuario]
     );
 
     console.log('IP registrado com sucesso:', ip);

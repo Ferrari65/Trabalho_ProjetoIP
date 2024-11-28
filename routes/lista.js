@@ -6,7 +6,7 @@ const verificaAutenticacao = require("../public/functions/midleware");
 
 router.get("/", verificaAutenticacao, async (req, res) => {
   try {
-    const result = await pool.query("SELECT * FROM endereco_ip");
+    const result = await pool.query("SELECT * FROM endereco_ip A, usuario B WHERE A.id_usuario_cadastro = B.id_usuario AND B.email = $1", [req.session.usuarioLogado.nome]);
     let ips = result.rows;
     res.render("listaIP", { ips, format, usuario: req.session.usuarioLogado });
   } catch (error) {
