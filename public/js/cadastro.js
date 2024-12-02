@@ -18,8 +18,8 @@ document.querySelector('.login').addEventListener('submit', function (e) {
         },
         {
             campo: email,
-            regra: /^[a-zA-Z0-9._-]+@(gmail\.com|Gmail\.com|hotmail\.com|Hotmail\.com|outlook\.com|Outlook\.com)$/i,
-            mensagem: "Use um e-mail válido (Gmail, Hotmail ou Outlook)."
+            regra: /^[a-zA-Z0-9._-]+@(altamogiana\.com\.br|Altamogiana\.com\.br|raizen\.com\.br|Raizen\.com\.br|usinaguaira\.com\.br|Usinaguaira\.com\.br)$/i,
+            mensagem: "Use um e-mail corporativo válido (Alta Mogiana, Raizen ou Usina Guaira)."
         },
         {
             campo: matricula,

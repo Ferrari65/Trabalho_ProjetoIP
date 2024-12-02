@@ -20,21 +20,22 @@ router.post('/addIP', verificaAutenticacao, async (req, res) => {
       return res.render('cadastroIP', { error: 'Todos os campos são obrigatórios.' });
     }
 
-    // Verifica se o IP já está cadastrado
-    const existingIP = await pool.query("SELECT * FROM endereco_ip WHERE ip = $1", [ip]);
+    // Pega o id_empresa e o id_usuario do usuário logado
+    const get_Informations = await pool.query('SELECT * FROM usuario WHERE email = $1', [req.session.usuarioLogado.nome]);
+    const id_empresa = get_Informations.rows[0].id_empresa;
+    let id_usuario = get_Informations.rows[0].id_usuario;
+
+
+    // Verifica se o IP já está cadastrado na empresa
+    const existingIP = await pool.query("SELECT * FROM endereco_ip WHERE ip = $1 AND id_empresa_cadastro = $2", [ip, id_empresa]);
     if (existingIP.rowCount > 0) {
       return res.render('cadastroIP', { error: 'IP já existente.' });
     }
 
-    console.log(req.session.usuarioLogado);
-    let getId_usuario = await pool.query('SELECT * FROM usuario WHERE email = $1', [req.session.usuarioLogado.nome]);
-    console.log(getId_usuario.rows[0]);
-    let id_usuario = getId_usuario.rows[0].id_usuario
-
     // Insere o novo IP no banco
     await pool.query(
-      "INSERT INTO endereco_ip(utilizador, matricula_utilizador, ip, data_registro, id_usuario_cadastro) VALUES ($1, $2, $3, $4, $5)", 
-      [utilizador, matricula, ip, dataAtual, id_usuario]
+      "INSERT INTO endereco_ip(utilizador, matricula_utilizador, ip, data_registro, id_usuario_cadastro, id_empresa_cadastro) VALUES ($1, $2, $3, $4, $5, $6)", 
+      [utilizador, matricula, ip, dataAtual, id_usuario, id_empresa]
     );
 
     console.log('IP registrado com sucesso:', ip);

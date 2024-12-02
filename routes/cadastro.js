@@ -4,15 +4,22 @@ const pool = require('../db/db.js');
 const bcrypt = require('bcrypt');
 
 /* Renderiza a página de cadastro */
-router.get('/', function(req, res, next) {
-  res.render('cadastro', { error: null });  
+router.get('/', async (req, res, next) => {
+  try {
+    const getEmpresa = await pool.query('SELECT * FROM empresa');
+    const empresas = getEmpresa.rows;
+
+    res.render('cadastro', { error: null, empresas });
+  } catch (error) {
+    console.error('Erro ao buscar empresas:', error);
+  }
 });
 
 router.post('/addClient', async (req, res, next) => {
-  const { matricula, nome, email, senha } = req.body;
+  const { matricula, nome, option, email, senha } = req.body;
 
   // LOGICA VERIFICANDO SE campos obrigatórios foram preenchidos
-  if (!matricula || !nome || !email || !senha) {
+  if (!matricula || !nome || !option || !email || !senha) {
     return res.render('cadastro', { 
       error: 'Todos os campos são obrigatórios.'  
     });
@@ -41,8 +48,8 @@ router.post('/addClient', async (req, res, next) => {
 
     // INSERT DO NOVO USUARIO NA TABELA USUARIO
     await pool.query(
-      "INSERT INTO usuario (matricula, nome, email, senha) VALUES ($1, $2, $3, $4)", 
-      [matricula, nome, email, hashedPassword]
+      "INSERT INTO usuario (matricula, nome, id_empresa, email, senha) VALUES ($1, $2, $3, $4, $5)", 
+      [matricula, nome, option, email, hashedPassword]
     );
 
     // REDIRECIONANDO PARA A PAGINA DE SUCESSO 

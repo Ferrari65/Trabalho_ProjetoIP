@@ -48,6 +48,16 @@
                 <i class="login__icon fas fa-envelope"></i>
                 <input type="email" class="login__input" name="email" placeholder="E-mail" required>
             </div>
+
+            <div class="login__field">
+                <i class="login__icon fas fa-envelope"></i>
+                <select id="opcoes" name="option">
+                    <option disabled selected>Selecione uma opção</option>
+                    <% empresas.forEach(empresa => { %>
+                    <option value="<%= empresa.id_empresa %>"><%= empresa.nome_empresa %></option>
+                    <% }) %>
+                </select>
+            </div>
         
             <!-- Campo de Matrícula -->
             <div class="login__field">
