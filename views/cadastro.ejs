@@ -44,10 +44,6 @@
             </div>
         
             <!-- Campo de E-mail -->
-            <div class="login__field">
-                <i class="login__icon fas fa-envelope"></i>
-                <input type="email" class="login__input" name="email" placeholder="E-mail" required>
-            </div>
 
             <div class="login__field">
                 <i class="login__icon fas fa-envelope"></i>
@@ -57,6 +53,11 @@
                     <option value="<%= empresa.id_empresa %>"><%= empresa.nome_empresa %></option>
                     <% }) %>
                 </select>
+            </div>
+            
+            <div class="login__field">
+                <i class="login__icon fas fa-envelope"></i>
+                <input type="email" class="login__input" name="email" placeholder="E-mail" required> 
             </div>
         
             <!-- Campo de Matrícula -->
@@ -96,5 +97,17 @@
 </div>
 
     <script src="/js/cadastro.js"></script>
+    <script>
+        // Função para limpar os campos do formulário ao carregar a página
+        window.onload = function () {
+            const inputs = document.querySelectorAll('.login__input');
+            inputs.forEach(input => input.value = '');
+
+            const select = document.getElementById('opcoes');
+            if (select) {
+                select.selectedIndex = 0; // Define a primeira opção como selecionada
+            }
+        };
+    </script>
 </body>
 </html>

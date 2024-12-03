@@ -13,7 +13,8 @@ document.querySelector('.login').addEventListener('submit', function (e) {
     let erros = [];
 
     // Validação de Email para Gmail, Hotmail ou Outlook
-    const emailRegex = /^[a-zA-Z0-9._-]+@(altamogiana\.com\.br|raizen\.com\.br|usinaguaira\.com\.br)$/;
+    const emailRegex = /^[a-zA-Z0-9._-]+@(altamogiana\.com|altamogiana\.com\.br|raizen\.com|raizen\.com\.br|guaira\.com|guaira\.com\.br)$/i;
+
     if (!emailRegex.test(email.value)) {
         erros.push("Insira um e-mail corporativo válido");
         email.classList.add('error');
