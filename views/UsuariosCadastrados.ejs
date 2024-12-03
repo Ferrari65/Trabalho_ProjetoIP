@@ -1,18 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acesso - Tabela de Cadastro</title>
-    <link rel="stylesheet" href="/ListaIPcss/style.css"> <!-- Adicione o seu CSS se necessário -->
-    <link rel="stylesheet" href="/telainicialcss/header.css">
-    <link rel="stylesheet" href="/CadastroIPCSS/style.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <title>Usuarios cadastrados</title>
 </head>
 <body>
-
+    
     <header class="cabecalho">
         <nav class="cabecalho_menu">
             <img class="imagem_logo" src="/img/nome_logo.png" alt="Logo da empresa">
@@ -36,32 +30,31 @@
         <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar...">
         <select id="filterSelect" class="filter-select">
             <option value="">Filtrar por...</option>
-            <option value="utilizador">Utilizador</option>
+            <option value="nome">Nome Colaborador</option>
             <option value="matricula">Matrícula</option>
-            <option value="ip">Endereço de IP</option>
-            <option value="data">Data de Cadastro</option>
+            <option value="email">Email corporativo</option>
         </select>
     </div>
 
+    
     <!-- Tabela de informações -->
     <table id="infoTable">
         <thead>
             <tr>
-                <th>Utilizador</th>
+                <th>Nome Colaborador</th>
                 <th>Matrícula</th>
-                <th>Endereço de IP</th>
-                <th>Data de Cadastro</th>
+                <th>Email</th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody>
-            <% ips.forEach(ip => { %>
+            <% usuarios.forEach(usuario => { %>
             <!-- Dados da Tabela -->
             <tr>
-                <td><%= ip.utilizador %></td>
-                <td><%= ip.matricula_utilizador %></td>
-                <td><%= ip.ip %></td>
-                <td><%= format(ip.data_registro, 'dd/MM/yyyy') %></td>
+                <td><%= usuario.matricula %></td>
+                <td><%= usuario.nome %></td>
+                <td><%= usuario.email %></td>
+                <td><%= usuario.id_empresa %></td>
                 <td>
                  <div class="button_crud">
                     <form action="/lista/edit/<%= ip.id_ip %>" method="GET">                       
@@ -105,44 +98,5 @@
         </tbody>
     </table>
 
-    <script src="/js/ListaIP.js"></script>
-    <script>
-
-        document.getElementById('searchInput').addEventListener('input', filterTable);
-        document.getElementById('filterSelect').addEventListener('change', filterTable);
-
-        function filterTable() {
-
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const filter = document.getElementById('filterSelect').value;
-
-            const table = document.getElementById('infoTable');
-            const rows = table.getElementsByTagName('tr');
-
-            for (let i = 1; i < rows.length; i++) { 
-                const cells = rows[i].getElementsByTagName('td');
-                let match = false;
-
-                switch (filter) {
-                    case 'utilizador':
-                        match = cells[0].textContent.toLowerCase().includes(searchTerm);
-                        break;
-                    case 'matricula':
-                        match = cells[1].textContent.toLowerCase().includes(searchTerm);
-                        break;
-                    case 'ip':
-                        match = cells[2].textContent.toLowerCase().includes(searchTerm);
-                        break;
-                    case 'data':
-                        match = cells[3].textContent.toLowerCase().includes(searchTerm);
-                        break;
-                    default:
-                        
-                        match = Array.from(cells).some(cell => cell.textContent.toLowerCase().includes(searchTerm));
-                }
-                rows[i].style.display = match ? '' : 'none';
-            }
-        }
-    </script>
 </body>
 </html>
