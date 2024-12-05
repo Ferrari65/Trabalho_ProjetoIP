@@ -93,50 +93,7 @@
 </div>
 
 <script src="/js/cadastro.js"></script>
-<script>
-    // Mapeamento de empresas e domínios
-    const dominiosPorEmpresa = {
-        "1": ["@altamogiana.com.br", "@altamogiana.com"], 
-        "2": ["@raizen.com", "@raizen.com.br"], 
-        "3": ["@usinaguaira.com", "@usinaguaira.com.br"], 
-    };
 
-    // Função de validação do e-mail
-    function validarEmailPorEmpresa() {
-        const selectEmpresa = document.getElementById("opcoes");
-        const emailInput = document.querySelector("input[name='email']");
-        const mensagemErro = document.getElementById("mensagemErro");
-
-        // Obtém a empresa selecionada
-        const idEmpresaSelecionada = selectEmpresa.value;
-        const email = emailInput.value;
-
-        // Validação do domínio
-        if (dominiosPorEmpresa[idEmpresaSelecionada]) {
-            const dominiosValidos = dominiosPorEmpresa[idEmpresaSelecionada];
-            const emailValido = dominiosValidos.some(dominio => email.endsWith(dominio));
-
-            if (!emailValido) {
-                mensagemErro.style.display = "block";
-                mensagemErro.textContent = "O e-mail deve corresponder à empresa selecionada.";
-                emailInput.classList.add("input-erro");
-                return false;
-            } else {
-                mensagemErro.style.display = "none";
-                emailInput.classList.remove("input-erro");
-            }
-        }
-        return true; // Permite o envio do formulário
-    }
-
-    // Função para limpar campos ao carregar a página
-    window.onload = function () {
-        const inputs = document.querySelectorAll('.login__input');
-        inputs.forEach(input => input.value = '');
-
-        const select = document.getElementById('opcoes');
-        if (select) select.selectedIndex = 0;
-    };
 </script>
 </body>
 </html>

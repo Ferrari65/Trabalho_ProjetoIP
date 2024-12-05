@@ -17,7 +17,7 @@ document.querySelector('.login').addEventListener('submit', function (e) {
 
     const erros = validarCampos(validacoes);
 
-    // EXIBINDO ERROS 
+    // MOSTRANDO OS ERROS 
     if (erros.length > 0) {
         exibirErros(erros);
     } else {
@@ -70,7 +70,7 @@ function limparErros() {
 }
 
 /**
- * AREA DE VALIDAÇÃO COM BASE NAS REGRAS FORNECIDAS
+ * VALIDAÇÃO COM BASE NAS REGRAS 
  */
 function validarCampos(validacoes) {
     const erros = [];
@@ -89,7 +89,7 @@ function validarCampos(validacoes) {
 }
 
 /**
- * EXIBINDO MENSAGEM DE ERRO AO LADO DO FORMULARIO
+ *  MENSAGEM DE ERRO AO LADO DO FORMULARIO
  */
 function exibirErros(erros) {
     erros.forEach(({ campo, mensagem }) => {
