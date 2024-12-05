@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <header class="cabecalho">
+<header class="cabecalho">
     <nav class="cabecalho_menu">
         <img class="imagem_logo" src="/img/nome_logo.png" alt="Logo da empresa">
         <ul class="nav_list" id="section1">
@@ -22,92 +22,121 @@
 <div class="container">
     <div class="screen">
         <div class="screen__content">
+            <h1>Cadastre-se</h1>
 
-            <h1>
-                Cadastre-se
-            </h1>
+            <!-- Exibe mensagem de erro apenas após tentativa de login -->
+            <% if (error) { %>
+                <div class="error-message" style="color: red; margin-bottom: 15px;">
+                    <%= error %>
+                </div>
+            <% } %>
 
+            <!-- Formulário de cadastro -->
+            <form class="login" action="/cadastro/addClient" method="POST" onsubmit="return validarEmailPorEmpresa()">
 
-                    <!-- Exibe mensagem de erro apenas após tentativa de login -->
-                    <% if (error) { %>
-                        <div class="error-message" style="color: red; margin-bottom: 15px;">
-                            <%= error %>
-                        </div>
-                    <% } %>
+                <div class="login__field">
+                    <i class="login__icon fas fa-user"></i>
+                    <input type="text" class="login__input" name="nome" placeholder="Nome Completo" required>
+                </div>
 
-          <!-- Formulário de cadastro -->
-          <form class="login" action="/cadastro/addClient" method="POST" onsubmit="return verificacaoSenha()">
+                <!-- Campo de Seleção de Empresa -->
+                <div class="login__field">
+                    <i class="login__icon fas fa-envelope"></i>
+                    <select id="opcoes" name="option" required>
+                        <option disabled selected>Selecione uma opção</option>
+                        <% empresas.forEach(empresa => { %>
+                        <option value="<%= empresa.id_empresa %>"><%= empresa.nome_empresa %></option>
+                        <% }) %>
+                    </select>
+                </div>
 
-            <div class="login__field">
-                <i class="login__icon fas fa-user"></i>
-                <input type="text" class="login__input" name="nome" placeholder="Nome Completo" required>
-            </div>
-        
-            <!-- Campo de E-mail -->
+                <!-- Campo de E-mail -->
+                <div class="login__field">
+                    <i class="login__icon fas fa-envelope"></i>
+                    <input type="email" class="login__input" name="email" placeholder="E-mail" required>
+                    <span id="mensagemErro" style="color: red; display: none;"></span>
+                </div>
 
-            <div class="login__field">
-                <i class="login__icon fas fa-envelope"></i>
-                <select id="opcoes" name="option">
-                    <option disabled selected>Selecione uma opção</option>
-                    <% empresas.forEach(empresa => { %>
-                    <option value="<%= empresa.id_empresa %>"><%= empresa.nome_empresa %></option>
-                    <% }) %>
-                </select>
-            </div>
-            
-            <div class="login__field">
-                <i class="login__icon fas fa-envelope"></i>
-                <input type="email" class="login__input" name="email" placeholder="E-mail" required> 
-            </div>
-        
-            <!-- Campo de Matrícula -->
-            <div class="login__field">
-                <i class="login__icon fas fa-id-badge"></i>
-                <input type="number" class="login__input" name="matricula" placeholder="Matrícula" required>
-            </div>
-        
-            <!-- Campo de Senha -->
-            <div class="login__field">
-                <i class="login__icon fas fa-lock"></i>
-                <input type="password" class="login__input" name="senha" placeholder="Senha" required>
-            </div>
-        
-            <!-- Campo de Confirmação de Senha -->
-            <div class="login__field">
-                <i class="login__icon fas fa-lock"></i>
-                <input type="password" class="login__input" name="confirmarSenha" placeholder="Confirmar Senha" required>
-            </div>
-        
-            <!-- Botão de envio do formulário -->
-            <button class="button login__submit" type="submit">
-                <span class="button__text">Cadastrar</span>
-            </button>
-          </form>
-        
+                <!-- Campo de Matrícula -->
+                <div class="login__field">
+                    <i class="login__icon fas fa-id-badge"></i>
+                    <input type="number" class="login__input" name="matricula" placeholder="Matrícula" required>
+                </div>
+
+                <!-- Campo de Senha -->
+                <div class="login__field">
+                    <i class="login__icon fas fa-lock"></i>
+                    <input type="password" class="login__input" name="senha" placeholder="Senha" required>
+                </div>
+
+                <!-- Campo de Confirmação de Senha -->
+                <div class="login__field">
+                    <i class="login__icon fas fa-lock"></i>
+                    <input type="password" class="login__input" name="confirmarSenha" placeholder="Confirmar Senha" required>
+                </div>
+
+                <!-- Botão de envio do formulário -->
+                <button class="button login__submit" type="submit">
+                    <span class="button__text">Cadastrar</span>
+                </button>
+            </form>
         </div>
 
-        <!-- AREA DO Background com formas PARA o design visual do formulário -->
+        <!-- Área do Background com formas -->
         <div class="screen__background">
             <span class="screen__background__shape screen__background__shape4"></span>
-            <span class="screen__background__shape screen__background__shape3"></span>        
+            <span class="screen__background__shape screen__background__shape3"></span>
             <span class="screen__background__shape screen__background__shape2"></span>
             <span class="screen__background__shape screen__background__shape1"></span>
         </div>
     </div>
 </div>
 
-    <script src="/js/cadastro.js"></script>
-    <script>
-        // Função para limpar os campos do formulário ao carregar a página
-        window.onload = function () {
-            const inputs = document.querySelectorAll('.login__input');
-            inputs.forEach(input => input.value = '');
+<script src="/js/cadastro.js"></script>
+<script>
+    // Mapeamento de empresas e domínios
+    const dominiosPorEmpresa = {
+        "1": ["@altamogiana.com.br", "@altamogiana.com"], 
+        "2": ["@raizen.com", "@raizen.com.br"], 
+        "3": ["@usinaguaira.com", "@usinaguaira.com.br"], 
+    };
 
-            const select = document.getElementById('opcoes');
-            if (select) {
-                select.selectedIndex = 0; // Define a primeira opção como selecionada
+    // Função de validação do e-mail
+    function validarEmailPorEmpresa() {
+        const selectEmpresa = document.getElementById("opcoes");
+        const emailInput = document.querySelector("input[name='email']");
+        const mensagemErro = document.getElementById("mensagemErro");
+
+        // Obtém a empresa selecionada
+        const idEmpresaSelecionada = selectEmpresa.value;
+        const email = emailInput.value;
+
+        // Validação do domínio
+        if (dominiosPorEmpresa[idEmpresaSelecionada]) {
+            const dominiosValidos = dominiosPorEmpresa[idEmpresaSelecionada];
+            const emailValido = dominiosValidos.some(dominio => email.endsWith(dominio));
+
+            if (!emailValido) {
+                mensagemErro.style.display = "block";
+                mensagemErro.textContent = "O e-mail deve corresponder à empresa selecionada.";
+                emailInput.classList.add("input-erro");
+                return false;
+            } else {
+                mensagemErro.style.display = "none";
+                emailInput.classList.remove("input-erro");
             }
-        };
-    </script>
+        }
+        return true; // Permite o envio do formulário
+    }
+
+    // Função para limpar campos ao carregar a página
+    window.onload = function () {
+        const inputs = document.querySelectorAll('.login__input');
+        inputs.forEach(input => input.value = '');
+
+        const select = document.getElementById('opcoes');
+        if (select) select.selectedIndex = 0;
+    };
+</script>
 </body>
 </html>
