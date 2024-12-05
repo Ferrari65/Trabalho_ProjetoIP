@@ -11,6 +11,7 @@ const sucessoRouter = require('./routes/sucesso');
 const listaRouter = require('./routes/lista');
 const IPRouter = require('./routes/cadastroIP');
 const editarRouter = require('./routes/editarIP')
+const usuariosRouter = require('./routes/UsuariosCadastrados');
 
 app.set('view engine', 'ejs');
 
@@ -31,6 +32,7 @@ app.use('/sucesso', sucessoRouter);
 app.use('/lista', listaRouter);
 app.use('/cadastroIP', IPRouter);
 app.use('/editarIP', editarRouter);
+app.use('/UsuariosCadastrados', usuariosRouter);
 
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000 !!!");
