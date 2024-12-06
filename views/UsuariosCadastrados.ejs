@@ -49,7 +49,7 @@
                 <th>Nome Colaborador</th>
                 <th>Matrícula</th>
                 <th>Email</th>
-                <th>Ação</th>
+                <th>Empresa</th>
             </tr>
         </thead>
         <tbody>
@@ -58,7 +58,17 @@
             <tr>
                 <td><%= usuario.nome %></td>
                 <td><%= usuario.matricula %></td>
-                <td><%= usuario.email %></td>    
+                <td><%= usuario.email %></td>
+                <td>
+                    <% if (usuario.id_empresa === 1) { %>
+                      Alta Mogiana
+                    <% }if (usuario.id_empresa === 2) { %>
+                        Raizen
+                      <% }  else { %>
+                      <%= usuario.id_empresa %>
+                    <% } %>
+                  </td>
+                  
                 <td>
                     <div class="button_crud">
                         <form id="delete-form-<%= usuario.id_usuario %>" action="/lista/deletar/<%= usuario.id_usuario %>" method="POST">
