@@ -1,21 +1,27 @@
-// ==== EVENTO DE ENVIO DO FORMULÁRIO ====
+
 document.querySelector('.login').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    // CAMPOS
+    // CAMPOS CHAMADOS
     const form = e.target;
     const nome = form.querySelector('input[name="nome"]');
     const email = form.querySelector('input[name="email"]');
     const matricula = form.querySelector('input[name="matricula"]');
     const senha = form.querySelector('input[name="senha"]');
     const confirmarSenha = form.querySelector('input[name="confirmarSenha"]');
+    const selectEmpresa = form.querySelector('#opcoes');
 
     const validacoes = getValidacoes(nome, email, matricula, senha, confirmarSenha);
 
-    // lIMPANDO ERROS
+    // LIMPANDO ERROS
     limparErros();
 
     const erros = validarCampos(validacoes);
+
+    // VALIDAÇÃO POR EMAIL EMPRESA
+    if (!validarEmailPorEmpresa(selectEmpresa, email)) {
+        erros.push({ campo: email, mensagem: "O e-mail deve corresponder à empresa selecionada." });
+    }
 
     // MOSTRANDO OS ERROS 
     if (erros.length > 0) {
@@ -27,10 +33,11 @@ document.querySelector('.login').addEventListener('submit', function (e) {
 
 // ==== FUNÇÕES DE VALIDAÇÃO GERAL ====
 
-/**
- * REGRAS DE VALIDAÇÃO 
- */
-function getValidacoes(nome, email, matricula, senha, confirmarSenha) {
+
+                /**
+                 REGRAS DE VALIDAÇÃO 
+                */
+    function getValidacoes(nome, email, matricula, senha, confirmarSenha) {
     return [
         {
             campo: nome,
@@ -39,8 +46,8 @@ function getValidacoes(nome, email, matricula, senha, confirmarSenha) {
         },
         {
             campo: email,
-            regra: /^[a-zA-Z0-9._-]+@(usinaaltamogiana\.com|usinaaltamogiana\.com\.br|usinaraizen\.com|usinaraizen\.com\.br|usinaguaira\.com|usinaguaira\.com\.br)$/i,
-            mensagem: "Use um e-mail corporativo válido (Alta Mogiana, Raizen ou Usina Guaira)."
+            regra: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+            mensagem: "O e-mail deve ser válido."
         },
         {
             campo: matricula,
@@ -61,17 +68,17 @@ function getValidacoes(nome, email, matricula, senha, confirmarSenha) {
     ];
 }
 
-/**
- * REMOVENDO ERROS
- */
+                /**
+                 REMOVENDO ERROS
+                */
 function limparErros() {
     document.querySelectorAll('.error').forEach(field => field.classList.remove('error'));
     document.querySelectorAll('.error-message').forEach(msg => msg.remove());
 }
 
-/**
- * VALIDAÇÃO COM BASE NAS REGRAS 
- */
+                /**
+                 VALIDAÇÃO COM BASE NAS REGRAS 
+                */
 function validarCampos(validacoes) {
     const erros = [];
     validacoes.forEach(({ campo, regra, mensagem, comparar }) => {
@@ -88,9 +95,9 @@ function validarCampos(validacoes) {
     return erros;
 }
 
-/**
- *  MENSAGEM DE ERRO AO LADO DO FORMULARIO
- */
+    /**
+        FUNÇÃO PARA EXIBIR MENSAGEM DE ERRO AO LADO DO FORMULÁRIO
+     */
 function exibirErros(erros) {
     erros.forEach(({ campo, mensagem }) => {
         campo.classList.add('error');
@@ -103,8 +110,11 @@ function exibirErros(erros) {
     });
 }
 
-// ==== VALIDAÇÃO  E-MAIL POR EMPRESA ====
+// ==== VALIDAÇÃO DE E-MAIL POR EMPRESA ====
 
+        /**
+         DOMÍNIOS POR EMPRESA
+        */
 const dominiosPorEmpresa = {
     "1": ["@usinaaltamogiana.com.br", "@usinaaltamogiana.com"],
     "2": ["@usinaraizen.com", "@usinaraizen.com.br"],
@@ -112,31 +122,17 @@ const dominiosPorEmpresa = {
 };
 
 /**
- * Valida o e-mail com base no domínio da empresa selecionada.
+  Valida o e-mail com base no domínio da empresa selecionada.
  */
-function validarEmailPorEmpresa() {
-    const selectEmpresa = document.getElementById("opcoes");
-    const emailInput = document.querySelector("input[name='email']");
-    const mensagemErro = document.getElementById("mensagemErro");
-
+function validarEmailPorEmpresa(selectEmpresa, emailInput) {
     const idEmpresaSelecionada = selectEmpresa.value;
-    const email = emailInput.value;
+    const email = emailInput.value.trim();
 
     if (dominiosPorEmpresa[idEmpresaSelecionada]) {
         const dominiosValidos = dominiosPorEmpresa[idEmpresaSelecionada];
-        const emailValido = dominiosValidos.some(dominio => email.endsWith(dominio));
-
-        if (!emailValido) {
-            mensagemErro.style.display = "block";
-            mensagemErro.textContent = "O e-mail deve corresponder à empresa selecionada.";
-            emailInput.classList.add("input-erro");
-            return false;
-        } else {
-            mensagemErro.style.display = "none";
-            emailInput.classList.remove("input-erro");
-        }
+        return dominiosValidos.some(dominio => email.endsWith(dominio));
     }
-    return true;
+    return false;
 }
 
 // ==== INICIALIZAÇÃO DA PÁGINA ====
