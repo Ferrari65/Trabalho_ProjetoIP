@@ -50,7 +50,7 @@ router.post('/addClient', async (req, res, next) => {
     }
 
     // VERIFICA SE A MATRICULA ESTA EM USO
-    const matriculaExistente = await pool.query("SELECT * FROM usuario WHERE matricula = $1", [matricula]);
+    const matriculaExistente = await pool.query("SELECT * FROM usuario WHERE matricula = $1 AND id_empresa = $2", [matricula, option]);
     if (matriculaExistente.rows.length > 0) {
       const getEmpresa = await pool.query('SELECT * FROM empresa');
       const empresas = getEmpresa.rows;
