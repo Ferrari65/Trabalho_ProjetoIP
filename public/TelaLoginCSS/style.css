@@ -34,7 +34,7 @@ body {
 
 /* Estilizacao h2 login */
 h2 {
-    font-size: 12px;
+    font-size: 25px;
     color: #554ab8;
 }
 
@@ -110,6 +110,7 @@ strong {
     padding: 15px 0px;    
     position: relative;    
     width: 100%;
+    font-size: 30px;
 }
 
 /* Ícones dentro dos Campos de Entrada */
