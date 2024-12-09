@@ -6,7 +6,7 @@ const verificaAutenticacao = require('../public/functions/midleware.js');
 
 // Renderiza a página de cadastro de IP
 router.get('/', verificaAutenticacao, (req, res) => {
-  res.render('cadastroIP', { error: null }); // Inicializa sem mensagem de erro
+  res.render('cadastroIP', { error: null });
 });
 
 // Rota para o envio de dados para o cadastro de IP
@@ -39,7 +39,7 @@ router.post('/addIP', verificaAutenticacao, async (req, res) => {
     );
 
     console.log('IP registrado com sucesso:', ip);
-    res.redirect('/lista'); // Redireciona após o sucesso
+    res.redirect('/lista'); 
   } catch (error) {
     console.error("Erro ao cadastrar IP:", error);
     res.render('cadastroIP', { error: 'Erro ao cadastrar o IP. Tente novamente.' });
@@ -56,7 +56,7 @@ router.post('/autentication', async (req, res) => {
       return res.render('cadastroIP', { error: 'Todos os campos são obrigatórios.' });
     }
 
-    // Simula lógica de autenticação (adicione lógica de autenticação real aqui)
+    // Simula lógica de autenticação 
     console.log('Usuário autenticado:', { utilizador, matricula, ip });
     res.redirect('/success');
   } catch (error) {

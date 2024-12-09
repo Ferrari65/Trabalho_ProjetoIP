@@ -20,7 +20,7 @@ router.post('/saveIP', async (req, res) => {
     );
 
     if (atualizarQuery.rowCount > 0) {
-      res.redirect('/lista'); // Redireciona para a página de lista se deu certo
+      res.redirect('/lista'); 
     } else {
       res.status(404).json({ message: 'Nenhum registro encontrado para atualizar.' });
     }
