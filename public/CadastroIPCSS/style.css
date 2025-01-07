@@ -184,6 +184,16 @@ header .logo {
     border-radius: 8px;
     background: #999;
   }
+
+  input.error {
+    border: 2px solid red;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.9em;
+  }
+  
   
   .screen-body {
     display: flex;
