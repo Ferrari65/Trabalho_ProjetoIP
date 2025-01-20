@@ -46,25 +46,6 @@ router.post('/addIP', verificaAutenticacao, async (req, res) => {
   }
 });
 
-// Rota para autenticação
-router.post('/autentication', async (req, res) => {
-  const { utilizador, matricula, ip } = req.body;
-
-  try {
-    // Valida os campos obrigatórios
-    if (!utilizador || !matricula || !ip) {
-      return res.render('cadastroIP', { error: 'Todos os campos são obrigatórios.' });
-    }
-
-    // Simula lógica de autenticação 
-    console.log('Usuário autenticado:', { utilizador, matricula, ip });
-    res.redirect('/success');
-  } catch (error) {
-    console.error("Erro na autenticação:", error);
-    res.render('cadastroIP', { error: 'Erro na autenticação. Tente novamente.' });
-  }
-});
-
 // Rota para logout
 router.get('/logout', (req, res) => {
   req.session.destroy((err) => {

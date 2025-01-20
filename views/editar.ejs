@@ -4,16 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar IP cadastrado</title>
-
     <link rel="stylesheet" href="/telainicialcss/header.css">
     <link rel="stylesheet" href="/CadastroIPCSS/style.css">
-    
-    <script src="/js/editarIP.js"></script>
-
 </head>
 <body>
 
-      <header class="cabecalho">
+    <style>
+       /* Destacar os campos com erro */
+.error {
+  border: 1px solid red;
+}
+
+/* Exibir as mensagens de erro */
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+ 
+    </style>
+
+    <header class="cabecalho">
         <nav class="cabecalho_menu">
             <img class="imagem_logo" src="/img/nome_logo.png" alt="Logo da empresa">
             <ul class="nav_list" id="section1">
@@ -21,58 +32,69 @@
                 <li><a class="cabecalho_menu_link" href="/cadastroIP">Cadastro de IP</a></li>
             </ul>
         </nav>
-      </header>
+    </header>
 
-
-    
-      <div class="background">
+    <div class="background">
         <div class="container">
-          <div class="screen">
-            <div class="screen-header">
-              <div class="screen-header-left">
-                <div class="screen-header-button close"></div>
-                <div class="screen-header-button maximize"></div>
-                <div class="screen-header-button minimize"></div>
-              </div>
-              <div class="screen-header-right">
-                <div class="screen-header-ellipsis"></div>
-                <div class="screen-header-ellipsis"></div>
-                <div class="screen-header-ellipsis"></div>
-              </div>
-            </div>
-            <div class="screen-body">
-              <div class="screen-body-item left">
-                <div class="app-title">
-                  <span>Editar</span>
-                  <span>Cadastro de IP</span>
+            <div class="screen">
+                <div class="screen-header">
+                    <div class="screen-header-left">
+                        <div class="screen-header-button close"></div>
+                        <div class="screen-header-button maximize"></div>
+                        <div class="screen-header-button minimize"></div>
+                    </div>
+                    <div class="screen-header-right">
+                        <div class="screen-header-ellipsis"></div>
+                        <div class="screen-header-ellipsis"></div>
+                        <div class="screen-header-ellipsis"></div>
+                    </div>
                 </div>
-                <div class="app-contact">Gerencie seus endereços IP</div>
-              </div>
-              <div class="screen-body-item">
-              <form class="app-form" id="formIP" action="/editarIP/saveIP" method="POST">
-                
-                  <!-- Campo oculto para enviar o id_ip -->
-                  <input type="hidden" name="id_ip" value="<%= result.id_ip %>">
+                <div class="screen-body">
+                    <div class="screen-body-item left">
+                        <div class="app-title">
+                            <span>Editar</span>
+                            <span>Cadastro de IP</span>
+                        </div>
+                        <div class="app-contact">Gerencie seus endereços IP</div>
+                    </div>
+                    <div class="screen-body-item">
+                        <form class="app-form" id="formIP" action="/editarIP/saveIP" method="POST">
 
-                  <div class="app-form-group">
-                    <input class="app-form-control" name="utilizador" placeholder="Nome do Utilizador" value="<%= result.utilizador %>" required>
-                  </div>
-                  <div class="app-form-group">
-                    <input class="app-form-control" name="matricula_utilizador" type="number" placeholder="Matricula do Utilizador" value="<%= result.matricula_utilizador %>" required>
-                  </div>
-                  <div class="app-form-group">
-                    <input class="app-form-control" name="ip" placeholder="Endereço IP" value="<%= result.ip %>" required>
-                  </div>
-                  <div class="app-form-group buttons">
-                    <button type="submit" class="app-form-button">SALVAR</button>
-                  </div>
-                </form>
-              </div>
-            </form>
-          </div>
+                            <div class="app-form-group">
+                                <input class="app-form-control" name="utilizador" placeholder="Nome do Utilizador" value="<%= result.utilizador %>" required>
+                            </div>
+
+                            <div class="app-form-group">
+                                <input class="app-form-control" name="matricula_utilizador" type="number" placeholder="Matrícula do Utilizador" value="<%= result.matricula_utilizador %>" required>
+                            </div>
+
+                            <div class="app-form-group">
+                                <label for="ipType">Selecione o Tipo de IP:</label>
+                                <select name="ipType" id="ipType" required>
+                                    <option value="">Escolha o Tipo de IP</option>
+                                    <option value="IPv4" <%= result.ipType === 'IPv4' ? 'selected' : '' %>>IPv4</option>
+                                    <option value="IPv6" <%= result.ipType === 'IPv6' ? 'selected' : '' %>>IPv6</option>
+                                </select>
+                            </div>
+
+                            <div class="app-form-group">
+                                <input class="app-form-control" name="ip" placeholder="Endereço IP" value="<%= result.ip %>" required>
+                                <div id="ipError" class="error-message" style="color: red; margin-bottom: 15px; display: none;"></div>
+                    <!--  mensagem de erro apenas após tentativa de login -->
+
+                            </div>
+
+                            <div class="app-form-group buttons">
+                                <button type="submit" class="app-form-button">SALVAR</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+
+    <script src="/js/editarIP.js"></script>
+    
 </body>
 </html>
