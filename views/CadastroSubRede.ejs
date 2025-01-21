@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Sub-rede</title>
+
+  <link rel="stylesheet" href="/telainicialcss/header.css">
+  <link rel="stylesheet" href="/CadastroIPCSS/style.css">
+  
+  <link rel="stylesheet" href="/CadastroSubRedeCSS/style.css">
+</head>
+<body>
+  <header class="cabecalho">
+    <nav class="cabecalho_menu">
+        <img class="imagem_logo" src="/img/nome_logo.png" alt="Logo da empresa">
+        <ul class="nav_list" id="section1">
+            <li><a class="cabecalho_menu_link" href="/lista">Lista de IP</a></li>
+            <li><a class="cabecalho_menu_link" href="/cadastroIP">Cadastro de IP</a></li>
+            <li><a class="cabecalho_menu_link" href="/UsuariosCadastrados">Usuarios Cadastrados</a></li>
+            <li><a class="cabecalho_menu_link" href="/CadastroSubRede">Sub-Redes</a></li>
+            <li>
+              <form action="/cadastroIP/logout" method="GET">
+                <button class="Btn" type="submit">
+                  <div class="sign"><svg viewBox="0 0 512 512"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path></svg></div>
+                  <div class="text">Sair</div>
+                </button>
+              </form>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+  <div class="container__forms">
+    <div class="align__cadastrp"></div>
+    <div class="container_style">
+      <div>
+        <h1>Cadastro de Sub-rede</h1>
+      <form class="form_subRede" id="subnetForm">
+
+      <label for="subnetName">Nome da Sub-rede:</label>
+      <input class="input_rede" type="text" id="subnetName" placeholder="Ex: Sub-rede Financeiro" required>
+
+      <label for="subnetMask">Máscara de Rede:</label>
+      <input class="input_rede" type="text" id="subnetMask" placeholder="Ex: 255.255.255.0" required>
+
+      <label for="subnetType">Tipo de Endereço:</label>
+      <select id="subnetType" required>
+        <option value="IPv4">IPv4</option>
+        <option value="IPv6">IPv6</option>
+      </select>
+
+      <label for="totalIPs">Total de IPs:</label>
+      <input class="input_rede" type="number" id="totalIPs" placeholder="Ex: 256" required>
+
+      <label for="reservedIPs">IPs Reservados (Rede e Broadcast):</label>
+      <input class="input_rede" type="text" id="reservedIPs" placeholder="Ex: 192.168.0.0, 192.168.0.255" required>
+
+      <label for="subnetDescription">Descrição da Sub-rede (Opcional):</label>
+      <input class="input_rede" type="text" id="subnetDescription" placeholder="Ex: Sub-rede para setor financeiro">
+
+      <button class="button_submit" type="submit">Adicionar Sub-rede</button>
+    </form>
+    </div>
+    <div>
+      <h1 class="titulo_tabela">Lista de Sub-rede</h1>
+    <table>
+      
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Máscara</th>
+          <th>Tipo</th>
+          <th>Total de IPs</th>
+          <th>Reservados</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody id="subnetTableBody">
+        <!-- As sub-redes cadastradas aparecerão aqui -->
+      </tbody>
+    </table>
+  </div> 
+  </div>
+  </div>
+
+  <script>
+    document.getElementById('subnetForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Impede o envio do formulário
+
+      // Coletando os valores dos campos
+      const name = document.getElementById('subnetName').value;
+      const mask = document.getElementById('subnetMask').value;
+      const type = document.getElementById('subnetType').value;
+      const totalIPs = document.getElementById('totalIPs').value;
+      const reservedIPs = document.getElementById('reservedIPs').value;
+      const description = document.getElementById('subnetDescription').value || "-";
+
+      // Criando uma nova linha na tabela
+      const tableBody = document.getElementById('subnetTableBody');
+      const newRow = document.createElement('tr');
+
+      newRow.innerHTML = `
+        <td>${name}</td>
+        <td>${mask}</td>
+        <td>${type}</td>
+        <td>${totalIPs}</td>
+        <td>${reservedIPs}</td>
+        <td>${description}</td>
+      `;
+
+      tableBody.appendChild(newRow);
+
+      // Limpando os campos do formulário
+      document.getElementById('subnetForm').reset();
+    });
+  </script>
+</body>
+</html>

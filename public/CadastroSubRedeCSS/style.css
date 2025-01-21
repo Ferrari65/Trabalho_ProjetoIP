@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    overflow-y: auto; /*scroll vertical */
+    overflow-x: hidden;
+ /* height: 100vh; Garantir que a altura seja 100% da tela */
+ /* padding: 0 10px; Espaçamento das bordas da tela */
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    font-size: 22px;
+    margin-top: 15px;
+    margin-bottom: 35px;
+    color: #fff;
+}
+.titulo_tabela{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Formulário */
+.form_subRede {
+    width: 80%;
+    max-width: 490px;
+    min-height: 600px;
+    background-color: #293447;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+}
+
+/* Labels */
+label {
+    display: block;
+    font-size: 1.1rem;
+    color: #ddd;
+    margin-bottom: 10px;
+}
+
+/* Campos de entrada (inputs, selects) */
+.input_rede, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    background-color: #2A3C52;
+    border: 1px solid #3A4D66;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+/* Placeholder */
+.input_rede::placeholder, select::placeholder {
+    color: #bbb;
+}
+
+/* Botão */
+.button_submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #4A5E74;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Efeito de hover no botão */
+.button_submit:hover {
+    background-color: #3C4D65;
+}
+
+
+
+table {
+    font-size: 15px;
+    width: 95%; /* Aumente de 90% para 95% */
+    border-collapse: collapse;
+    background-color: #1F2A3D;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    margin: 20px auto; /* Centraliza e adiciona espaçamento externo */
+}
+
+th, td {
+    width: 140px;
+    padding: 14px; /* Aumente o padding para adicionar espaço interno */
+    text-align: left;
+    border: 1px solid #3A4D66;
+}
+
+th {
+    background-color: #4A5E74;
+    color: #fff;
+}
+
+td {
+    background-color: #2A3C52;
+    color: #ddd;
+}
+
+
+.container_style{
+    display: flex;
+    justify-content: space-between; 
+    gap: 60px; 
+    padding: 20px; 
+    margin: 50px;
+    box-sizing: border-box;
+    align-items: flex-start; /* Alinha itens pelo topo */
+}
+

@@ -21,7 +21,7 @@ router.post('/saveIP', async (req, res) => {
     const verificaId = await pool.query('SELECT * FROM endereco_ip WHERE id_ip = $1', [id_ip]);
     if (verificaId.rowCount === 0) {
       console.log('ID do IP não encontrado.');
-      return res.render('cadastroIP', { error: 'ID do IP não encontrado.' });
+      return res.render('editar', { error: 'ID do IP não encontrado.' });
     }
 
     if (verificaIP.rowCount > 0) {

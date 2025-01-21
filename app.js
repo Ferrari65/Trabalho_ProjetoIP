@@ -12,6 +12,7 @@ const listaRouter = require('./routes/lista');
 const IPRouter = require('./routes/cadastroIP');
 const editarRouter = require('./routes/editarIP')
 const usuariosRouter = require('./routes/UsuariosCadastrados');
+const subnetRouter = require('./routes/CadastroSubRede');
 
 app.set('view engine', 'ejs');
 
@@ -33,6 +34,7 @@ app.use('/lista', listaRouter);
 app.use('/cadastroIP', IPRouter);
 app.use('/editarIP', editarRouter);
 app.use('/UsuariosCadastrados', usuariosRouter);
+app.use ('/CadastroSubRede', subnetRouter);
 
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000 !!!");
