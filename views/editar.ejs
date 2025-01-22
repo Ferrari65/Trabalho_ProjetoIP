@@ -68,7 +68,11 @@
                         <div class="app-contact">Gerencie seus endereços IP</div>
                     </div>
                     <div class="screen-body-item">
-                        <form class="app-form" id="formIP" action="/editarIP/saveIP" method="POST">
+                        <form class="app-form" id="formIP" action="/lista/edit/saveIP" method="POST">
+
+                            <input type="hidden" value="<%= result.id_ip %>" name="id_ip">
+                            <input type="hidden" value="<%= result.id_empresa_cadastro %>" name="id_empresa_cadastro">
+
 
                             <div class="app-form-group">
                                 <input class="app-form-control" name="utilizador" placeholder="Nome do Utilizador" value="<%= result.utilizador %>" required>

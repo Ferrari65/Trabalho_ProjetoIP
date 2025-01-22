@@ -41,11 +41,56 @@ router.get('/edit/:id_ip', async (req, res) => {
   const id_ip = req.params.id_ip;
   try{
     const getIP = await pool.query('SELECT * FROM endereco_ip WHERE id_ip = $1', [id_ip]);
-    const result = getIP.rows
+    const result = getIP.rows[0]
     
-    res.render('editar', { result: getIP.rows[0], error: null });
+    res.render('editar', { result, error: null });
   } catch (error) {
     res.status(404).json({ error: error.message })
+  }
+});
+
+/* POST para salvar o IP */
+router.post('/edit/saveIP', async (req, res) => {
+  const { id_ip, id_empresa_cadastro, utilizador, matricula_utilizador, ip } = req.body;
+  const dataAtual = format(new Date(), 'yyyy/MM/dd');
+
+  console.log('Dados recebidos:', { id_ip, id_empresa_cadastro, utilizador, matricula_utilizador, ip });
+
+  try {
+    // Verificar se o id_ip existe
+    const verificaId = await pool.query('SELECT * FROM endereco_ip WHERE id_ip = $1 AND id_empresa_cadastro = $2', [id_ip, id_empresa_cadastro]);
+    const verificaIp = await pool.query('SELECT * FROM endereco_ip WHERE id_empresa_cadastro = $1 AND ip = $2', [id_empresa_cadastro, ip]);
+    const result = verificaIp.rows[0];
+    if (verificaId.rowCount === 0) {
+      console.log('ID do IP não encontrado.');
+      return res.render('editar', { result, error: 'ID do IP não encontrado.' });
+    } else if (verificaId.rowCount > 0) {
+      if (verificaIp.rowCount > 0) {
+        console.log('IP já existente.');
+        return res.render('editar', { result, error: 'IP já existente.' });
+      }
+    }
+
+    // Atualizar o IP
+    const atualizarQuery = await pool.query(
+      'UPDATE endereco_ip SET utilizador = $1, matricula_utilizador = $2, ip = $3, data_registro = $4 WHERE id_ip = $5',
+      [utilizador, matricula_utilizador, ip, dataAtual, id_ip]
+    );
+
+    console.log('Resultado da atualização:', atualizarQuery);
+
+    if (atualizarQuery.rowCount > 0) {
+      console.log('IP atualizado com sucesso:', ip);
+      return res.redirect('/lista'); 
+    } else {
+      console.log('Nenhuma linha foi atualizada.');
+      return res.render('editar', { result, error: 'Nenhuma linha foi atualizada. Verifique o ID do IP.' });
+    }
+  } catch (error) {
+    const verificaIp = await pool.query('SELECT * FROM endereco_ip WHERE id_empresa_cadastro = $1 AND ip = $2', [id_empresa_cadastro, ip]);
+    const result = verificaIp.rows[0];
+    console.error("Erro ao atualizar o IP:", error);
+    return res.render('editar', { result, error: 'Erro interno do servidor. Tente novamente.' });
   }
 });
 

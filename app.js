@@ -10,7 +10,6 @@ const cadastroRouter = require('./routes/cadastro');
 const sucessoRouter = require('./routes/sucesso');
 const listaRouter = require('./routes/lista');
 const IPRouter = require('./routes/cadastroIP');
-const editarRouter = require('./routes/editarIP')
 const usuariosRouter = require('./routes/UsuariosCadastrados');
 const subnetRouter = require('./routes/CadastroSubRede');
 
@@ -32,7 +31,6 @@ app.use('/cadastro', cadastroRouter);
 app.use('/sucesso', sucessoRouter);
 app.use('/lista', listaRouter);
 app.use('/cadastroIP', IPRouter);
-app.use('/editarIP', editarRouter);
 app.use('/UsuariosCadastrados', usuariosRouter);
 app.use ('/CadastroSubRede', subnetRouter);
 
